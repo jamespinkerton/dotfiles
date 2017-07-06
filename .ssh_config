@@ -1,0 +1,3 @@
+Host *
+  ClientAliveInterval 50
+  ServerAliveInterval 50
