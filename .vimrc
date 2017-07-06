@@ -1,0 +1,1 @@
+/home/james_c_pinkerton/dotfiles/_vimrc
