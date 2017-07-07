@@ -1,0 +1,7 @@
+[user]
+	name = James Pinkerton
+[credential]
+	helper = cache
+[include]
+    path = $HOME/.gitconfig.email
+
