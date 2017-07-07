@@ -3,5 +3,5 @@
 [credential]
 	helper = cache
 [include]
-    path = $HOME/.gitconfig.email
+    path = ~/.gitconfig.email
 
