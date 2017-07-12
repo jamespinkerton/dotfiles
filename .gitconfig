@@ -1,6 +1,6 @@
 [user]
-	name = James Pinkerton
+    name = James Pinkerton
     email = jamespinkerton@users.noreply.github.com
 [credential]
-	helper = cache
+    helper = cache
 
