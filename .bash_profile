@@ -9,6 +9,7 @@ shopt -s checkwinsize
 unset USERNAME
 
 [ -f ~/.bashrc ] && source ~/.bashrc
-if [[ -n "$PS1" && -z "$TMUX" && -n "$(which tmux)" ]]; then
-    exec tmux new-session -A -s main #TODO: exec tmux without making it hard to ssh in
-fi
+
+# if [[ -n "$PS1" && -z "$TMUX" && -n "$(which tmux)" ]]; then
+#     exec tmux new-session -A -s main #TODO: exec tmux without making it hard to ssh in
+# fi
