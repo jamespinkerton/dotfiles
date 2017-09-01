@@ -2,5 +2,10 @@
     name = James Pinkerton
     email = jamescpinkerton@gmail.com
 [credential]
-	helper = cache
-
+    helper = cache
+[alias]
+    alias = !git config -l | grep alias | cut -c 7-
+    pretty = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    graph = !git pretty --graph
+    st = status
+    gr = grep -Ii
