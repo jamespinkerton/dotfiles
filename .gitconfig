@@ -8,8 +8,7 @@
     pretty = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     graph = !git pretty --graph
     out = !git graph @{u}..
-    incoming = !git fetch && git graph ..@{u}
-    in = !git incoming
+    in = !git fetch && git graph ..@{u}
     st = status
     gr = grep -Ii
     ls = ls-files
