@@ -8,4 +8,5 @@
     pretty = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     graph = !git pretty --graph
     st = status
+    out = log --branches --not --remotes=origin
     gr = grep -Ii

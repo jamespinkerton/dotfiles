@@ -7,11 +7,9 @@ alias secure="http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080"
 
 alias ls='ls --color=auto'
 alias grep='grep -n --color=auto'
-alias gitout="git log --branches --not --remotes=origin"
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias brc='vi ~/.bashrc;source ~/.bashrc'
-alias n='usr/local/bin/nvim'
-alias nvim='usr/local/bin/nvim'
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias brc='vi -o ~/.bashrc ~/.bash_profile;source ~/.bashrc_profile'
+alias n='nvim'
 
 shopt -s globstar
 shopt -s checkwinsize
