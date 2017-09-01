@@ -7,8 +7,9 @@
     alias = !git config -l | grep alias | cut -c 7-
     pretty = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     graph = !git pretty --graph
+    out = !git graph @{u}..
+    incoming = !git fetch && git graph ..@{u}
+    in = !git incoming
     st = status
-    out = log --branches --not --remotes=origin
-    outout = !git pretty --branches --not --remotes=origin
     gr = grep -Ii
     ls = ls-files
