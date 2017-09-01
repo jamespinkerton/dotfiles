@@ -2,7 +2,7 @@ export PATH=$PATH:$HOME/bin
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 export PATH=$HOME/miniconda3/bin:$PATH
 export PATH=$HOME/local/miniconda3/bin:$PATH
-export EDITOR=VIM
+export EDITOR=vim
 
 # From Facebook:
 shopt -s checkwinsize
