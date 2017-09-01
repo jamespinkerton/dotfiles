@@ -11,7 +11,10 @@ if ! has('nvim')
 endif
 set tabstop=4 shiftwidth=4
 autocmd Filetype c setlocal tabstop=2 shiftwidth=2
+autocmd Filetype cpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype h setlocal tabstop=2 shiftwidth=2
+autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
+autocmd Filetype py setlocal tabstop=4 shiftwidth=4
 autocmd Filetype nim setlocal tabstop=2 shiftwidth=2
 
 set background=dark
@@ -162,15 +165,20 @@ call plug#begin(vim_folder . "/plugged")
         " endif
     " endfunction
     " Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+    "
+    Plug 'rust-lang/rust.vim'
+    " Plug 'Rip-Rip/clang_complete'
+    "   let g:clang_library_path='/home/linuxbrew/.linuxbrew/lib/clang/4.0.1/lib'
 
     if has('nvim')
-        Plug 'Shougo/deoplete.nvim'
-            let g:deoplete#enable_at_startup = 1
-            let g:python3_host_prog = '/home/jamesp/.conda/envs/modeling/bin/python3'
-        Plug 'zchee/deoplete-jedi'
+        " Plug 'Shougo/deoplete.nvim'
+        "     let g:deoplete#enable_at_startup = 1
+        "     let g:python3_host_prog = '/home/jamesp/.conda/envs/modeling/bin/python3'
+        " Plug 'zchee/deoplete-jedi'
         " Plug 'zchee/deoplete-clang'
         Plug 'benekastah/neomake'
             let g:neomake_python_enabled_makers = ['pyflakes']
             let g:neomake_yaml_enabled_makers = ['yamllint']
     endif
 call plug#end()
+set expandtab

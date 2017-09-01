@@ -1,1 +1,1 @@
-$HOME/.vimrc
+/home/james_c_pinkerton/.vimrc

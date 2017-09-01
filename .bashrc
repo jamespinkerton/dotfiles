@@ -10,10 +10,13 @@ alias secure="http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080"
 alias ls='ls --color=auto'
 alias grep='grep -n --color=auto'
 alias gg="git log --oneline --all --graph --decorate --color"
+alias gitout="git log --branches --not --remotes=origin"
+alias st="git status"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cg="config log --oneline --all --graph --decorate --color"
 alias brc='vi ~/.bashrc;source ~/.bashrc'
-alias n='nvim'
+alias n='usr/local/bin/nvim'
+alias nvim='usr/local/bin/nvim'
 # alias texliveonfly="$(brew --cellar --prefix texlive)/20170111/texmf-dist/scripts/texliveonfly/texliveonfly.py"
 
 git config --global credential.helper cache
