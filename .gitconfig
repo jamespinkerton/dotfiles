@@ -10,3 +10,4 @@
     st = status
     out = log --branches --not --remotes=origin
     gr = grep -Ii
+    ls = ls-files
