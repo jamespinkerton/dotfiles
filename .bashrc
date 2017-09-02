@@ -10,6 +10,7 @@ alias grep='grep -n --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias brc='vi -o ~/.bashrc ~/.bash_profile;source ~/.bash_profile'
 alias n='nvim'
+alias add_keys="eval \"$(ssh-agent -s)\" && ssh-add -k ~/.ssh/id_rsa"
 
 shopt -s globstar
 shopt -s checkwinsize
