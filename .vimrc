@@ -146,6 +146,8 @@ call plug#begin(vim_folder . "/plugged")
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         map <C-p> :FZF<CR>
+        let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
     " Plug 'majutsushi/tagbar'
     "     nmap <F9> :TagbarToggle<CR>
     " Plug 'ryanoasis/vim-devicons'
