@@ -1,7 +1,6 @@
 let vim_folder = has('nvim') ? "~/.config/nvim/" : "~/.vim/"
 if empty(glob(vim_folder . "/autoload/plug.vim"))
-    execute ! curl -fLo " . vim_folder . "/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    execute "! curl -fLo " . vim_folder . "/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 set expandtab
