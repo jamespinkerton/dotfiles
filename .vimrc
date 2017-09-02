@@ -1,6 +1,7 @@
 let vim_folder = has('nvim') ? "~/.config/nvim/" : "~/.vim/"
 if empty(glob(vim_folder . "/autoload/plug.vim"))
     execute "! curl -fLo " . vim_folder . "/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 set expandtab
 set clipboard=unnamed
@@ -15,6 +16,7 @@ autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype py setlocal tabstop=4 shiftwidth=4
 autocmd Filetype nim setlocal tabstop=2 shiftwidth=2
 
+set background=dark
 set mouse=
 set noshowmode
 inoremap <C-z> <esc><C-z>
