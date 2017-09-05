@@ -17,6 +17,8 @@ shopt -s checkwinsize
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
-PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
-PROMPT_COMMAND=
+if [[ "$(uname -s)" != "Darwin" ]]; then
+    SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
+    PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
+    PROMPT_COMMAND=
+fi
