@@ -77,6 +77,7 @@ call plug#begin(vim_folder . "/plugged")
             let g:chromatica#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
     endif
 
+    " Plug 'junegunn/vim-github-dashboard' " Not working
     " Plug 'majutsushi/tagbar'
     "     nmap <F9> :TagbarToggle<CR>
     " Plug 'ryanoasis/vim-devicons'
@@ -96,7 +97,7 @@ call plug#begin(vim_folder . "/plugged")
 call plug#end()
 
 set termguicolors
-set clipboard=unnamed
+set clipboard+=unnamed
 set background=dark
 set mouse=
 set hidden
