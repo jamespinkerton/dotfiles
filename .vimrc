@@ -1,21 +1,9 @@
-let vim_folder = has('nvim') ? "~/.config/nvim/" : "~/.vim/"
-if empty(glob(vim_folder . "/autoload/plug.vim"))
-    execute "! curl -fLo " . vim_folder . "/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute "! curl -fLo /autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-set expandtab
-set clipboard=unnamed
-if ! has('nvim')
-    set clipboard=unnamed
-endif
-set tabstop=4 shiftwidth=4
-autocmd Filetype c setlocal tabstop=2 shiftwidth=2
-autocmd Filetype cpp setlocal tabstop=2 shiftwidth=2
-autocmd Filetype h setlocal tabstop=2 shiftwidth=2
-autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
-autocmd Filetype py setlocal tabstop=4 shiftwidth=4
-autocmd Filetype nim setlocal tabstop=2 shiftwidth=2
 
+set clipboard=unnamed " Maybe turn this off in nvim
 set background=dark
 set mouse=
 set noshowmode
@@ -33,100 +21,46 @@ nnoremap <C-L> :nohl<CR><C-L>
 filetype indent plugin on
 " Always display the status line, even if only one window is displayed
 set laststatus=2
- 
-"------------------------------------------------------------
-" Must have options {{{1
-"
-" These are highly recommended options.
- 
-" Vim with default settings does not allow easy switching between multiple files
-" in the same editor window. Users can use multiple split windows or multiple
-" tab pages to edit multiple files, but it is still best to enable an option to
-" allow easier switching between files.
-"
-" One such option is the 'hidden' option, which allows you to re-use the same
-" window and switch from an unsaved buffer without saving it first. Also allows
-" you to keep an undo history for multiple files when re-using the same window
-" in this way. Note that using persistent undo also lets you undo in multiple
-" files even in the same window, but is less efficient and is actually designed
-" for keeping undo history after closing Vim entirely. Vim will complain if you
-" try to quit without saving, and swap files will keep you safe if your computer
-" crashes.
 set hidden
- 
-" Better command-line completion
-set wildmenu
- 
 " Show partial commands in the last line of the screen
 set showcmd
- 
-" Modelines have historically been a source of security vulnerabilities. As
-" such, it may be a good idea to disable them and use the securemodelines
-" script, <http://www.vim.org/scripts/script.php?script_id=1876>.
-" set nomodeline
- 
- 
-"------------------------------------------------------------
-" Usability options {{{1
-"
-" These are options that users frequently set in their .vimrc. Some of them
-" change Vim's behaviour in ways which deviate from the true Vi way, but
-" which are considered to add usability. Which, if any, of these options to
-" use is very much a personal preference, but they are harmless.
- 
+" Better command-line completion
+set wildmenu
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
- 
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
- 
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
+" Keep the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent
- 
 " Stop certain movements from always going to the first character of a line.
-" While this behaviour deviates from that of Vi, it does what most users
-" coming from other editors would expect.
 set nostartofline
- 
-" Display the cursor position on the last line of the screen or in the status
-" line of a window
+" Display the cursor position on the last line of the screen
 set ruler
- 
-"" Instead of failing a command because of unsaved changes, instead raise a
-" dialogue asking if you wish to save changed files.
+"" Raise dialong instead of failing a command because of unsaved changes
 set confirm
- 
 " Use visual bell instead of beeping when doing something wrong
 set visualbell
- 
-" And reset the terminal code for the visual bell. If visualbell is set, and
-" this line is also included, vim will neither flash nor beep. If visualbell
-" is unset, this does nothing.
 set t_vb=
- 
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
- 
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
- 
- 
-"------------------------------------------------------------
-" Mappings {{{1
-"
-" Useful mappings
- 
-" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
-" which is the default
 map Y y$
- 
- 
-"------------------------------------------------------------
+set tabstop=4 shiftwidth=4
+autocmd Filetype c setlocal tabstop=2 shiftwidth=2
+autocmd Filetype cpp setlocal tabstop=2 shiftwidth=2
+autocmd Filetype h setlocal tabstop=2 shiftwidth=2
+autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
+autocmd Filetype py setlocal tabstop=4 shiftwidth=4
+autocmd Filetype nim setlocal tabstop=2 shiftwidth=2
+set expandtab
 
-call plug#begin(vim_folder . "/plugged")
+call plug#begin("~/.vim/plugged")
     Plug 'flazz/vim-colorschemes'
+    Plug 'tomtom/tcomment_vim'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        map <C-p> :FZF<CR>
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
         map <C-n> :NERDTreeToggle<CR>
     Plug 'vim-airline/vim-airline'
@@ -141,13 +75,9 @@ call plug#begin(vim_folder . "/plugged")
         let g:airline_theme='murmur'
     Plug 'ervandew/supertab'
         let g:SuperTabDefaultCompletionType = "<C-n>"
-    " Plug 'ctrlpvim/ctrlp.vim'
-    "     let g:ctrlp_custom_ignore = { 'dir' : 'c/obj/*\|/home/jamesp/lustre\|/home/jamesp/libraries/neovim' }
-    " Plug 'davidhalter/jedi-vim'
-    Plug 'tomtom/tcomment_vim'
     Plug 'christoomey/vim-tmux-navigator'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-        map <C-p> :FZF<CR>
+    Plug 'rust-lang/rust.vim'
+
     " Plug 'majutsushi/tagbar'
     "     nmap <F9> :TagbarToggle<CR>
     " Plug 'ryanoasis/vim-devicons'
@@ -165,9 +95,11 @@ call plug#begin(vim_folder . "/plugged")
     " endfunction
     " Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
     "
-    Plug 'rust-lang/rust.vim'
     " Plug 'Rip-Rip/clang_complete'
     "   let g:clang_library_path='/home/linuxbrew/.linuxbrew/lib/clang/4.0.1/lib'
+    " Plug 'ctrlpvim/ctrlp.vim'
+    "     let g:ctrlp_custom_ignore = { 'dir' : 'c/obj/*\|/home/jamesp/lustre\|/home/jamesp/libraries/neovim' }
+    " Plug 'davidhalter/jedi-vim'
 
     if has('nvim')
         " Plug 'Shougo/deoplete.nvim'

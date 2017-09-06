@@ -8,7 +8,8 @@ alias secure="http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080"
 alias ls='ls --color=auto'
 alias grep='grep -n --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias brc='vi -o ~/.bashrc ~/.bash_profile;source ~/.bash_profile'
+alias vi='vim'
+alias brc='vim -o ~/.bashrc ~/.bash_profile;source ~/.bash_profile'
 alias n='nvim'
 
 shopt -s globstar
