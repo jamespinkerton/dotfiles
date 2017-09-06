@@ -6,6 +6,8 @@ endif
 
 call plug#begin(vim_folder . "/plugged")
     Plug 'flazz/vim-colorschemes'
+    Plug 'icymind/NeoSolarized'
+    Plug 'mhartington/oceanic-next'
     Plug 'tomtom/tcomment_vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         map <C-p> :FZF<CR>
@@ -14,7 +16,7 @@ call plug#begin(vim_folder . "/plugged")
         map <C-n> :NERDTreeToggle<CR>
     Plug 'vim-airline/vim-airline'
         set encoding=utf-8
-		set laststatus=2
+        set laststatus=2
         set ttimeoutlen=50
         let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#tabline#show_buffers = 0
@@ -26,44 +28,33 @@ call plug#begin(vim_folder . "/plugged")
         let g:SuperTabDefaultCompletionType = "<C-n>"
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'rust-lang/rust.vim'
-
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
+    Plug 'tpope/vim-fugitive'
 
-    " Plug 'majutsushi/tagbar'
-    "     nmap <F9> :TagbarToggle<CR>
-    " Plug 'ryanoasis/vim-devicons'
-    " Plug 'easymotion/vim-easymotion'
-    " Plug 'junegunn/vim-easy-align'
-    " Plug 'junegunn/vim-github-dashboard'
-    " Plug 'SirVer/ultisnips'
-    " Plug 'honza/vim-snippets'
-    " Plug 'tpope/vim-surround'
-    " Plug 'terryma/vim-multiple-cursors'
-    "    let g:multi_cursor_start_key='<C-b>'
-    " Plug 'ctrlpvim/ctrlp.vim'
-    "     let g:ctrlp_custom_ignore = { 'dir' : 'c/obj/*\|/home/jamesp/lustre\|/home/jamesp/libraries/neovim' }
+    Plug 'lyuts/vim-rtags'
+    Plug 'hdima/python-syntax'
 
     if !has('nvim')
-        Plug 'davidhalter/jedi-vim'
+        " Plug 'davidhalter/jedi-vim'
         Plug 'Rip-Rip/clang_complete'
             let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
-            let g:deoplete#sources#clang#clang_header
             let g:clang_complete_auto = 0
             let g:clang_auto_select = 0
             let g:clang_omnicppcomplete_compliance = 0
             let g:clang_make_default_keymappings = 0
             let g:clang_use_library = 1
-            " function! BuildYCM(info)
-                " if a:info.status == 'installed' || a:info.force
-                "     execute "export PATH=/usr/bin/:$PATH"
-                "     !./install.py
-                "     execute "export PATH=/home/jamesp/.conda/envs/modeling/bin/:$PATH"
-                " endif
-            " endfunction
-            " Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-            " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-            "
+        " function! BuildYCM(info)
+            " if a:info.status == 'installed' || a:info.force
+            "     execute "export PATH=/usr/bin/:$PATH"
+            "     !./install.py
+            "     execute "export PATH=/home/jamesp/.conda/envs/modeling/bin/:$PATH"
+            " endif
+        " endfunction
+        " Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+        " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+        " Plug 'uplus/vim-clang-rename' " not working
+        "     let g:clang_rename#command='/usr/bin/clang-rename-3.8'
     endif
 
     if has('nvim')
@@ -81,61 +72,73 @@ call plug#begin(vim_folder . "/plugged")
         Plug 'benekastah/neomake'
             let g:neomake_python_enabled_makers = ['pyflakes']
             let g:neomake_yaml_enabled_makers = ['yamllint']
+        Plug 'arakashic/chromatica.nvim'
+            let g:chromatica#enable_at_startup=1
+            let g:chromatica#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
     endif
+
+    " Plug 'majutsushi/tagbar'
+    "     nmap <F9> :TagbarToggle<CR>
+    " Plug 'ryanoasis/vim-devicons'
+    " Plug 'easymotion/vim-easymotion'
+    " Plug 'junegunn/vim-easy-align'
+    " Plug 'junegunn/vim-github-dashboard'
+    " Plug 'SirVer/ultisnips'
+    " Plug 'honza/vim-snippets'
+    " Plug 'tpope/vim-surround'
+    " Plug 'terryma/vim-multiple-cursors'
+    "    let g:multi_cursor_start_key='<C-b>'
+    " Plug 'ctrlpvim/ctrlp.vim' " Alternative to FZF
+    "     let g:ctrlp_custom_ignore = { 'dir' : 'c/obj/*\|/home/jamesp/lustre\|/home/jamesp/libraries/neovim' }
+    " Plug 'bbchung/clighter' " Alternative to chromatica
+    "     let g:clighter_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+    " Plug 'python-mode/python-mode' " Too slow
 call plug#end()
 
-set clipboard=unnamed " Maybe turn this off in nvim
+set termguicolors
+set clipboard=unnamed
 set background=dark
 set mouse=
-set noshowmode
-inoremap <C-z> <esc><C-z>
-syntax on
-set t_Co=256
-set nocompatible
-set hlsearch
-if has('nvim')
-    set inccommand=split
-endif
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
-nnoremap <C-L> :nohl<CR><C-L>
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-filetype indent plugin on
-" Always display the status line, even if only one window is displayed
-set laststatus=2
 set hidden
-" Show partial commands in the last line of the screen
-set showcmd
-" Better command-line completion
-set wildmenu
-" Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
-" Allow backspacing over autoindent, line breaks and start of insert action
-set backspace=indent,eol,start
-" Keep the same indent as the line you're currently on. Useful for READMEs, etc.
-set autoindent
-" Stop certain movements from always going to the first character of a line.
-set nostartofline
-" Display the cursor position on the last line of the screen
-set ruler
-"" Raise dialong instead of failing a command because of unsaved changes
-set confirm
-" Use visual bell instead of beeping when doing something wrong
-set visualbell
+set nostartofline " Stop certain movements from always going to the first character of a line.
+set confirm " Raise dialong instead of failing a command because of unsaved changes
+set visualbell " Use visual bell instead of beeping when doing something wrong
 set t_vb=
-" Quickly time out on keycodes, but never time out on mappings
-set notimeout ttimeout ttimeoutlen=200
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
-map Y y$
-set tabstop=4 shiftwidth=4
+" set colorcolumn=80
+" highlight ExtraWhitespace ctermbg=red guibg=red
+" match ExtraWhitespace /\s\+$\|\t/
+inoremap <C-z> <esc><C-z>
+if has('nvim')
+  set inccommand=split
+endif
+
+if !has('nvim')
+    set noshowmode
+    syntax on
+    set t_Co=256
+    set nocompatible
+    set hlsearch
+    " Allow backspacing over autoindent, line breaks and start of insert action
+    set backspace=indent,eol,start
+    " Display the cursor position on the last line of the screen
+    set ruler
+    " Better command-line completion
+    set wildmenu
+    " Keep the same indent as the line you're currently on. Useful for READMEs, etc.
+    set autoindent
+    set smarttab
+    filetype indent plugin on
+    " Quickly time out on keycodes, but never time out on mappings
+    set notimeout ttimeout ttimeoutlen=200
+" Show partial commands in the last line of the screen
+set showcmd
+endif
+
+set expandtab tabstop=4 shiftwidth=4
 autocmd Filetype c setlocal tabstop=2 shiftwidth=2
 autocmd Filetype cpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype h setlocal tabstop=2 shiftwidth=2
 autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
-autocmd Filetype py setlocal tabstop=4 shiftwidth=4
 autocmd Filetype nim setlocal tabstop=2 shiftwidth=2
-set expandtab
