@@ -76,6 +76,7 @@ call plug#begin(vim_folder . "/plugged")
         " Plug 'zchee/deoplete-clang'
         "     let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
         "     let g:deoplete#sources#clang#clang_header='/usr/lib/clang/3.8.1/include'
+        Plug 'Shougo/neoinclude.vim'
         Plug 'sebastianmarkow/deoplete-rust'
         Plug 'benekastah/neomake'
             let g:neomake_python_enabled_makers = ['pyflakes']
