@@ -26,14 +26,14 @@ call plug#begin(vim_folder . "/plugged")
         let g:airline_theme='murmur'
     Plug 'ervandew/supertab'
         let g:SuperTabDefaultCompletionType = "<C-n>"
-    Plug 'christoomey/vim-tmux-navigator'
     Plug 'rust-lang/rust.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'tpope/vim-fugitive'
+    " Plug 'christoomey/vim-tmux-navigator'
 
-    Plug 'lyuts/vim-rtags'
-    Plug 'hdima/python-syntax'
+    " Plug 'lyuts/vim-rtags'
+    " Plug 'hdima/python-syntax'
 
     if !has('nvim')
         " Plug 'davidhalter/jedi-vim'
