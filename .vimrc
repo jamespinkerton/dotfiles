@@ -61,6 +61,7 @@ call plug#begin("~/.vim/plugged")
     Plug 'tomtom/tcomment_vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         map <C-p> :FZF<CR>
+        let $FZF_DEFAULT_COMMAND = 'ag -g ""'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
         map <C-n> :NERDTreeToggle<CR>
     Plug 'vim-airline/vim-airline'
