@@ -12,3 +12,5 @@
     st = status
     gr = grep -Ii
     ls = ls-files
+[push]
+	default = simple
