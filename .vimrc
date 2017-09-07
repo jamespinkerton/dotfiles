@@ -39,8 +39,8 @@ Plug 'christoomey/vim-tmux-navigator'
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         let g:deoplete#enable_at_startup = 1
-    Plug 'autozimu/LanguageClient-neovim'
-        let g:LanguageClient_autoStart = 1
+    " Plug 'autozimu/LanguageClient-neovim'
+    "     let g:LanguageClient_autoStart = 1
     Plug 'zchee/deoplete-jedi'
     Plug 'tweekmonster/deoplete-clang2'
     " Plug 'zchee/deoplete-clang'
@@ -117,7 +117,7 @@ endif
 " Plug 'python-mode/python-mode' " Too slow
 
 set termguicolors
-" set background=dark
+set background=dark
 " colorscheme NeoSolarized
 set clipboard+=unnamed
 set mouse=
