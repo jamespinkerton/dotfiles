@@ -12,7 +12,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     map <C-p> :FZF<CR>
-    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+    " let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     map <C-n> :NERDTreeToggle<CR>
 Plug 'vim-airline/vim-airline'
@@ -116,11 +116,11 @@ endif
 "     let g:clighter_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
 " Plug 'python-mode/python-mode' " Too slow
 
-set termguicolors
+" set termguicolors
 set background=dark
 " colorscheme NeoSolarized
-set clipboard+=unnamed
-set mouse=
+" set clipboard+=unnamed
+" set mouse=a
 set hidden
 set ignorecase
 set smartcase
@@ -139,5 +139,9 @@ autocmd Filetype cpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype h setlocal tabstop=2 shiftwidth=2
 autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype nim setlocal tabstop=2 shiftwidth=2
+
+" let g:python2_host_prog = '~/miniconda3/bin/python2'
+" let g:python3_host_prog = '~/miniconda3/bin/python3'
+let g:python3_host_prog = '/private/home/jamespinkerton/miniconda3/bin/python'
 
 call plug#end()
