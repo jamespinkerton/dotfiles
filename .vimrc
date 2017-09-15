@@ -13,8 +13,10 @@ Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     map <C-p> :FZF<CR>
     " let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
     map <C-n> :NERDTreeToggle<CR>
+    let g:NERDTreeHijackNetrw=1
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle'}
 Plug 'vim-airline/vim-airline'
     set encoding=utf-8
     set laststatus=2
@@ -33,6 +35,9 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+
 " Plug 'lyuts/vim-rtags'
 " Plug 'hdima/python-syntax'
 
@@ -41,14 +46,15 @@ if has('nvim')
        "  let g:deoplete#enable_at_startup = 1
        " let g:deoplete#enable_at_startup = 0
        " autocmd InsertEnter * call deoplete#enable()
-    Plug 'zchee/deoplete-jedi'
+    Plug 'zchee/deoplete-jedi', { 'on': [] }
     " Plug 'zchee/deoplete-clang'
     "     let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
     "     let g:deoplete#sources#clang#clang_header='/usr/lib/clang/3.8.1/include'
-    Plug 'tweekmonster/deoplete-clang2'
+    Plug 'tweekmonster/deoplete-clang2', { 'on': [] }
     Plug 'Shougo/neoinclude.vim'
-    Plug 'sebastianmarkow/deoplete-rust'
+    Plug 'sebastianmarkow/deoplete-rust', { 'on': [] }
     Plug 'benekastah/neomake'
+    " Plug 'benekastah/neomake', { 'on': ['Neomake'] }
         let g:neomake_python_enabled_makers = ['pyflakes']
         let g:neomake_yaml_enabled_makers = ['yamllint']
     " Plug 'arakashic/chromatica.nvim'
@@ -109,7 +115,6 @@ endif
 " Plug 'junegunn/vim-github-dashboard'
 " Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
-" Plug 'tpope/vim-surround'
 " Plug 'terryma/vim-multiple-cursors'
 "    let g:multi_cursor_start_key='<C-b>'
 " Plug 'ctrlpvim/ctrlp.vim' " Alternative to FZF
