@@ -31,3 +31,5 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
     PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
 fi
+
+[ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
