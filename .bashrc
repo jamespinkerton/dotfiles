@@ -1,9 +1,6 @@
 [ -z "$PS1" ] && return
 
-# Facebook:
-[ -f /etc/bashrc ] && source /etc/bashrc
-[ -f /usr/facebook/ops/rc/master.bashrc ] && source /usr/facebook/ops/rc/master.bashrc
-alias secure="http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080"
+[ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
     alias ls='ls --color=auto'
@@ -31,5 +28,3 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
     PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
 fi
-
-[ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
