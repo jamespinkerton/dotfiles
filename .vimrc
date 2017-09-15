@@ -140,8 +140,7 @@ autocmd Filetype h setlocal tabstop=2 shiftwidth=2
 autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype nim setlocal tabstop=2 shiftwidth=2
 
-" let g:python2_host_prog = '~/miniconda3/bin/python2'
-" let g:python3_host_prog = '~/miniconda3/bin/python3'
-let g:python3_host_prog = '/private/home/jamespinkerton/miniconda3/bin/python'
+" let g:python2_host_prog = expand("~") . "/miniconda3/bin/python2"
+let g:python3_host_prog = expand("~") . "/miniconda3/bin/python3"
 
 call plug#end()
