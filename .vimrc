@@ -37,15 +37,15 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'hdima/python-syntax'
 
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'on': [] }
        "  let g:deoplete#enable_at_startup = 1
        " let g:deoplete#enable_at_startup = 0
-       autocmd InsertEnter * call deoplete#enable()
+       " autocmd InsertEnter * call deoplete#enable()
     Plug 'zchee/deoplete-jedi'
-    Plug 'tweekmonster/deoplete-clang2'
     " Plug 'zchee/deoplete-clang'
     "     let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
     "     let g:deoplete#sources#clang#clang_header='/usr/lib/clang/3.8.1/include'
+    Plug 'tweekmonster/deoplete-clang2'
     Plug 'Shougo/neoinclude.vim'
     Plug 'sebastianmarkow/deoplete-rust'
     Plug 'benekastah/neomake'
