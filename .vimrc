@@ -37,10 +37,10 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'hdima/python-syntax'
 
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        let g:deoplete#enable_at_startup = 1
-    " Plug 'autozimu/LanguageClient-neovim'
-    "     let g:LanguageClient_autoStart = 1
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
+       "  let g:deoplete#enable_at_startup = 1
+       " let g:deoplete#enable_at_startup = 0
+       autocmd InsertEnter * call deoplete#enable()
     Plug 'zchee/deoplete-jedi'
     Plug 'tweekmonster/deoplete-clang2'
     " Plug 'zchee/deoplete-clang'
@@ -54,6 +54,8 @@ if has('nvim')
     " Plug 'arakashic/chromatica.nvim'
     "     let g:chromatica#enable_at_startup=1
     "     let g:chromatica#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+    " Plug 'autozimu/LanguageClient-neovim'
+    "     let g:LanguageClient_autoStart = 1
     set inccommand=split
 endif
 
