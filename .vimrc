@@ -40,6 +40,22 @@ Plug 'airblade/vim-gitgutter'
 
 " Plug 'lyuts/vim-rtags'
 " Plug 'hdima/python-syntax'
+" Plug 'junegunn/vim-github-dashboard' " Not working
+" Plug 'majutsushi/tagbar'
+"     nmap <F9> :TagbarToggle<CR>
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'easymotion/vim-easymotion'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'junegunn/vim-github-dashboard'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+" Plug 'terryma/vim-multiple-cursors'
+"    let g:multi_cursor_start_key='<C-b>'
+" Plug 'ctrlpvim/ctrlp.vim' " Alternative to FZF
+"     let g:ctrlp_custom_ignore = { 'dir' : 'c/obj/*\|/home/jamesp/lustre\|/home/jamesp/libraries/neovim' }
+" Plug 'bbchung/clighter' " Alternative to chromatica
+"     let g:clighter_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+" Plug 'python-mode/python-mode' " Too slow
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'on': [] }
@@ -102,43 +118,23 @@ if !has('nvim')
     filetype indent plugin on
     " Quickly time out on keycodes, but never time out on mappings
     set notimeout ttimeout ttimeoutlen=200
-" Show partial commands in the last line of the screen
-set showcmd
+    " Show partial commands in the last line of the screen
+    set showcmd
 endif
 
-" Plug 'junegunn/vim-github-dashboard' " Not working
-" Plug 'majutsushi/tagbar'
-"     nmap <F9> :TagbarToggle<CR>
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'easymotion/vim-easymotion'
-" Plug 'junegunn/vim-easy-align'
-" Plug 'junegunn/vim-github-dashboard'
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-" Plug 'terryma/vim-multiple-cursors'
-"    let g:multi_cursor_start_key='<C-b>'
-" Plug 'ctrlpvim/ctrlp.vim' " Alternative to FZF
-"     let g:ctrlp_custom_ignore = { 'dir' : 'c/obj/*\|/home/jamesp/lustre\|/home/jamesp/libraries/neovim' }
-" Plug 'bbchung/clighter' " Alternative to chromatica
-"     let g:clighter_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
-" Plug 'python-mode/python-mode' " Too slow
-
 " set termguicolors
-set background=dark
 " colorscheme NeoSolarized
 " set clipboard+=unnamed
-" set mouse=a
-set hidden
-set ignorecase
-set smartcase
-set nostartofline " Stop certain movements from always going to the first character of a line.
-set confirm " Raise dialong instead of failing a command because of unsaved changes
-set visualbell " Use visual bell instead of beeping when doing something wrong
-set t_vb=
 " set colorcolumn=80
 " highlight ExtraWhitespace ctermbg=red guibg=red
 " match ExtraWhitespace /\s\+$\|\t/
 inoremap <C-z> <esc><C-z>
+set background=dark
+set ignorecase smartcase
+set visualbell t_vb=
+set nostartofline
+set hidden
+set confirm
 
 set expandtab tabstop=4 shiftwidth=4
 autocmd Filetype c setlocal tabstop=2 shiftwidth=2
