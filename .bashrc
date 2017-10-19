@@ -14,7 +14,6 @@ alias grep='grep -n --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias brc='nvim -o ~/.bashrc ~/.bash_profile;source ~/.bash_profile'
 alias n='nvim'
-alias vi='nvim'
 alias add_keys="eval \"$(ssh-agent -s)\" && ssh-add -k ~/.ssh/id_rsa"
 alias cherry="mosh cherry -- $TMX"
 
@@ -22,6 +21,7 @@ shopt -s globstar
 shopt -s checkwinsize
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
+    alias vi='nvim'
     SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
     PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
