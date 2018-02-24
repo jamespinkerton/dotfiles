@@ -12,7 +12,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     map <C-p> :FZF<CR>
-    " let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
     map <C-n> :NERDTreeToggle<CR>
     let g:NERDTreeHijackNetrw=1
@@ -142,6 +142,10 @@ autocmd Filetype cpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype h setlocal tabstop=2 shiftwidth=2
 autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype nim setlocal tabstop=2 shiftwidth=2
+filetype plugin on
+
+so ~/.vim/syntax/opti.vim
+
 
 " let g:python2_host_prog = expand("~") . "/miniconda3/bin/python2"
 let g:python3_host_prog = expand("~") . "/miniconda3/bin/python3"

@@ -7,8 +7,6 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 unset GLOG_logtostderr
 unset GLOG_alsologtostderr
 unset GLOG_colorlogtostderr
-
-
 unset USERNAME
 
 [ -f ~/.bashrc ] && source ~/.bashrc
