@@ -12,7 +12,13 @@ Plug 'mhartington/oceanic-next'
 Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     map <C-p> :FZF<CR>
-    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+    " let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+    " --files: List files that would be searched but do not search
+    " --no-ignore: Do not respect .gitignore, etc...
+    " --hidden: Search hidden files and folders
+    " --follow: Follow symlinks
+    " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+    let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
     map <C-n> :NERDTreeToggle<CR>
     let g:NERDTreeHijackNetrw=1
@@ -79,6 +85,7 @@ if has('nvim')
     " Plug 'autozimu/LanguageClient-neovim'
     "     let g:LanguageClient_autoStart = 1
     set inccommand=split
+    set termguicolors
 endif
 
 if !has('nvim')
@@ -122,7 +129,6 @@ if !has('nvim')
     set showcmd
 endif
 
-" set termguicolors
 " colorscheme NeoSolarized
 " set clipboard+=unnamed
 " set colorcolumn=80
@@ -145,7 +151,6 @@ autocmd Filetype nim setlocal tabstop=2 shiftwidth=2
 filetype plugin on
 
 so ~/.vim/syntax/opti.vim
-
 
 " let g:python2_host_prog = expand("~") . "/miniconda3/bin/python2"
 let g:python3_host_prog = expand("~") . "/miniconda3/bin/python3"
