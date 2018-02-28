@@ -12,11 +12,8 @@ else
 fi
 alias grep='grep -n --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias brc='nvim -o ~/.bashrc ~/.bash_profile;source ~/.bash_profile'
-alias n='nvim'
 alias vi='nvim'
-alias add_keys="eval \"$(ssh-agent -s)\" && ssh-add -k ~/.ssh/id_rsa"
-alias cherry="mosh cherry -- $TMX"
+alias vim='nvim'
 
 shopt -s globstar
 shopt -s checkwinsize
@@ -26,10 +23,3 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
     PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
 fi
-
-zmq_push () {
-        m=$(</dev/stdin) && \
-        printf "$(printf '\\\\x01\\\\x00\\\\x%02x\\\\x00%s' ${#m} "$m")" \
-        >/dev/tcp/$1/$2
-}
-# printf "Hello World!" | zmq_push localhost portnumber
