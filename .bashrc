@@ -15,6 +15,13 @@ alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vi='nvim'
 alias vim='nvim'
 
+function pretty_csv {
+    column -t -s, -n "$@" | less -F -S -X -K
+}
+# function pretty_csv {
+#     perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+# }
+
 shopt -s globstar
 shopt -s checkwinsize
 

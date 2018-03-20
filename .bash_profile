@@ -8,6 +8,7 @@ unset GLOG_alsologtostderr
 unset GLOG_colorlogtostderr
 unset USERNAME
 export MOYO="/mnt/disks/moyo/"
-export MD_MOYO="/mnt/disks/moyo/md_moyo"
+export MD_MOYO="/mnt/disks/moyo/md-moyo"
+export MD_ARCHIVE="/mnt/disks/moyo/md-archive"
 
 [ -f ~/.bashrc ] && source ~/.bashrc
