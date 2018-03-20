@@ -30,3 +30,11 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
     PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
 fi
+
+# TODO:
+# bash autocomplete
+# git autocomplete
+# vim clang complete
+# airline
+# colored autocomplete bash
+eval $(dircolors -b $HOME/.dircolors)
