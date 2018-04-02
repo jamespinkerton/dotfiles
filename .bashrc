@@ -4,6 +4,7 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f '/Users/pinkerton/Downloads/google-cloud-sdk/path.bash.inc' ] && source '/Users/pinkerton/Downloads/google-cloud-sdk/path.bash.inc'
 [ -f '/Users/pinkerton/Downloads/google-cloud-sdk/completion.bash.inc' ] && source '/Users/pinkerton/Downloads/google-cloud-sdk/completion.bash.inc'
+[ -f '/etc/bash_completion' ] && ! shopt -oq posix && source '/etc/bash_completion'
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
     alias ls='ls --color=auto'
@@ -35,6 +36,7 @@ fi
 # bash autocomplete
 # git autocomplete
 # vim clang complete
-# airline
+# airline in vim
+# powerline in terminal
 # colored autocomplete bash
-eval $(dircolors -b $HOME/.dircolors)
+# eval $(dircolors -b $HOME/.dircolors)
