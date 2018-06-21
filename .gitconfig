@@ -1,6 +1,8 @@
 [user]
     name = James Pinkerton
     email = jamescpinkerton@gmail.com
+[credential]
+    helper = store
 [alias]
     alias = !git config -l | grep alias | cut -c 7-
     pretty = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
