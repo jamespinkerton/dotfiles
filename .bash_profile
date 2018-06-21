@@ -8,5 +8,7 @@ unset GLOG_alsologtostderr
 unset GLOG_colorlogtostderr
 unset USERNAME
 export MOYO="/mnt/disks/moyo/"
+export HISTFILESIZE=10000
+export HISTSIZE=2000
 
 [ -f ~/.bashrc ] && source ~/.bashrc

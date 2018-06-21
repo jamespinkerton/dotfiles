@@ -8,6 +8,8 @@
 [ -f "$HOME/.git-completion.bash" ] && source "$HOME/.git-completion.bash"
 
 shopt -s globstar
+shopt -s extglob
+shopt -s histappend
 shopt -s checkwinsize
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
@@ -39,5 +41,5 @@ alias mount_h2="sshfs jamespinkerton@$DEVFAIR:/private/home/jamespinkerton h2_ho
 
 # TODO:
 # bash autocomplete
-# git autocomplete
 # vim clang complete
+# Various shopt options
