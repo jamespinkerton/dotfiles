@@ -4,6 +4,7 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f '/Users/pinkerton/Downloads/google-cloud-sdk/path.bash.inc' ] && source '/Users/pinkerton/Downloads/google-cloud-sdk/path.bash.inc'
 [ -f '/Users/pinkerton/Downloads/google-cloud-sdk/completion.bash.inc' ] && source '/Users/pinkerton/Downloads/google-cloud-sdk/completion.bash.inc'
+[ -f '/etc/bash_completion' ] && ! shopt -oq posix && source '/etc/bash_completion'
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
     alias ls='ls --color=auto'
@@ -12,10 +13,15 @@ else
 fi
 alias grep='grep -n --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias brc='nvim -o ~/.bashrc ~/.bash_profile;source ~/.bash_profile'
-alias n='nvim'
-alias add_keys="eval \"$(ssh-agent -s)\" && ssh-add -k ~/.ssh/id_rsa"
-alias cherry="mosh cherry -- $TMX"
+alias vi='nvim'
+alias vim='nvim'
+
+function pretty_csv {
+    column -t -s, -n "$@" | less -F -S -X -K
+}
+# function pretty_csv {
+#     perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+# }
 
 shopt -s globstar
 shopt -s checkwinsize
@@ -31,3 +37,12 @@ DEVFAIR="devfair0168"
 alias SSH_PORT="ssh -f jamespinkerton@$DEVFAIR -L 25565:$DEVFAIR:25565 -N"
 alias login_h2="mosh prn-fairjmp01 -- ssh -t $DEVFAIR 'tmux new -A -s main'"
 alias mount_h2="sshfs jamespinkerton@$DEVFAIR:/private/home/jamespinkerton h2_home -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=remoteDIR"
+
+# TODO:
+# bash autocomplete
+# git autocomplete
+# vim clang complete
+# airline in vim
+# powerline in terminal
+# colored autocomplete bash
+# eval $(dircolors -b $HOME/.dircolors)
