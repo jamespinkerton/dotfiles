@@ -25,11 +25,12 @@ fi
 alias grep='grep -n --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-function pretty_csv {
-    column -t -s, -n "$@" | less -F -S -X -K
-}
-function pretty_csv_perl {
-    perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+function vcsv {
+    if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
+        column -t -s, -n "$@" | less -F -S -X -K
+    else
+        perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+    fi
 }
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
