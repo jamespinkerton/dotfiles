@@ -2,9 +2,10 @@
 
 [ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f '/Users/pinkerton/Downloads/google-cloud-sdk/path.bash.inc' ] && source '/Users/pinkerton/Downloads/google-cloud-sdk/path.bash.inc'
-[ -f '/Users/pinkerton/Downloads/google-cloud-sdk/completion.bash.inc' ] && source '/Users/pinkerton/Downloads/google-cloud-sdk/completion.bash.inc'
+[ -f "$HOME/Downloads/google-cloud-sdk/path.bash.inc" ] && source "$HOME/Downloads/google-cloud-sdk/path.bash.inc"
+[ -f "$HOME/Downloads/google-cloud-sdk/completion.bash.inc" ] && source "$HOME/Downloads/google-cloud-sdk/completion.bash.inc"
 [ -f '/etc/bash_completion' ] && ! shopt -oq posix && source '/etc/bash_completion'
+[ -f "$HOME/.git-completion.bash" ] && source "$HOME/.git-completion.bash"
 
 shopt -s globstar
 shopt -s checkwinsize
@@ -40,4 +41,3 @@ alias mount_h2="sshfs jamespinkerton@$DEVFAIR:/private/home/jamespinkerton h2_ho
 # bash autocomplete
 # git autocomplete
 # vim clang complete
-# eval $(dircolors -b $HOME/.dircolors)
