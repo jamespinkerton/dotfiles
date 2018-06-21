@@ -26,7 +26,7 @@ alias grep='grep -n --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 function vcsv {
-    if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
+    if [ "$(uname -s)" != "Darwin" ] && [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
         column -t -s, -n "$@" | less -F -S -X -K
     else
         perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
