@@ -6,6 +6,9 @@
 [ -f '/Users/pinkerton/Downloads/google-cloud-sdk/completion.bash.inc' ] && source '/Users/pinkerton/Downloads/google-cloud-sdk/completion.bash.inc'
 [ -f '/etc/bash_completion' ] && ! shopt -oq posix && source '/etc/bash_completion'
 
+shopt -s globstar
+shopt -s checkwinsize
+
 if [[ "$(uname -s)" != "Darwin" ]]; then
     alias ls='ls --color=auto'
 else
@@ -13,18 +16,13 @@ else
 fi
 alias grep='grep -n --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias vi='nvim'
-alias vim='nvim'
 
 function pretty_csv {
     column -t -s, -n "$@" | less -F -S -X -K
 }
-# function pretty_csv {
-#     perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
-# }
-
-shopt -s globstar
-shopt -s checkwinsize
+function pretty_csv_perl {
+    perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+}
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
     alias vi='nvim'
@@ -42,7 +40,4 @@ alias mount_h2="sshfs jamespinkerton@$DEVFAIR:/private/home/jamespinkerton h2_ho
 # bash autocomplete
 # git autocomplete
 # vim clang complete
-# airline in vim
-# powerline in terminal
-# colored autocomplete bash
 # eval $(dircolors -b $HOME/.dircolors)
