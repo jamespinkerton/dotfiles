@@ -43,7 +43,3 @@ DEVFAIR="devfair0168"
 alias SSH_PORT="ssh -f jamespinkerton@$DEVFAIR -L 25565:$DEVFAIR:25565 -N"
 alias login_h2="mosh prn-fairjmp01 -- ssh -t $DEVFAIR 'tmux new -A -s main'"
 alias mount_h2="sshfs jamespinkerton@$DEVFAIR:/private/home/jamespinkerton h2_home -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=remoteDIR"
-
-# TODO:
-# bash autocomplete
-# vim clang complete
