@@ -9,8 +9,13 @@
 
 shopt -s globstar
 shopt -s extglob
-shopt -s histappend
 shopt -s checkwinsize
+shopt -s histappend
+shopt -s cmdhist
+shopt -s cdspell
+shopt -s dirspell
+HISTCONTROL=ignoredups
+export HISTIGNORE="&:ls:[bf]g:exit"
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
     alias ls='ls --color=auto'
@@ -42,4 +47,3 @@ alias mount_h2="sshfs jamespinkerton@$DEVFAIR:/private/home/jamespinkerton h2_ho
 # TODO:
 # bash autocomplete
 # vim clang complete
-# Various shopt options
