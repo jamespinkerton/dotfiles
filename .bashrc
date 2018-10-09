@@ -22,7 +22,7 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
 else
     alias ls='gls --color=auto'
 fi
-alias grep='grep -n --color=auto'
+alias grep='grep --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 function vcsv {
