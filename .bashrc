@@ -24,6 +24,7 @@ else
 fi
 alias grep='grep -n --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias gp='rm -f ~/.git-credentials && git push'
 
 function vcsv {
     if [ "$(uname -s)" != "Darwin" ] && [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
