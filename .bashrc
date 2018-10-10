@@ -22,7 +22,7 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
 else
     alias ls='gls --color=auto'
 fi
-alias grep='grep -n --color=auto'
+alias grep='grep --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias gp='rm -f ~/.git-credentials && git push'
 
@@ -43,5 +43,5 @@ fi
 
 DEVFAIR="devfair0168"
 alias ssh_tunnel_h2="ssh -f $USER@$DEVFAIR -L 25565:$DEVFAIR:25565 -N"
-alias login_h2="mosh prn-fairjmp01 -- ssh $DEVFAIR 'tmux new -A -s main'"
+alias login_h2="mosh prn-fairjmp01 -- ssh -t $DEVFAIR 'tmux new -A -s main'"
 alias mount_h2="sshfs $USER@$DEVFAIR:/private/home/$USER h2_home -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=H2_MOUNT"
