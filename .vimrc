@@ -36,8 +36,6 @@ Plug 'vim-airline/vim-airline'
     let g:airline#extensions#tabline#tab_min_count = 2
 Plug 'vim-airline/vim-airline-themes'
     let g:airline_theme='murmur'
-" Plug 'ervandew/supertab'
-"     let g:SuperTabDefaultCompletionType = "<C-n>"
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -65,47 +63,35 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'bbchung/clighter' " Alternative to chromatica
 "     let g:clighter_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
 " Plug 'python-mode/python-mode' " Too slow
+" Plug 'uplus/vim-clang-rename' " not working
+"     let g:clang_rename#command='/usr/bin/clang-rename-3.8'
 
 if has('nvim')
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    "     let g:deoplete#enable_at_startup = 1
-    " Plug 'zchee/deoplete-jedi'
-
-
-    " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+    " *** Begin ncm2 ***
     Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
-
     " enable ncm2 for all buffers
     autocmd BufEnter * call ncm2#enable_for_buffer()
-
-    " IMPORTANTE: :help Ncm2PopupOpen for more information
+    " :help Ncm2PopupOpen for more information
     set completeopt=noinsert,menuone,noselect
-
-    " NOTE: you need to install completion sources to get completions. Check
-    " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+    " Wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-tmux'
     Plug 'ncm2/ncm2-path'
     Plug 'ncm2/ncm2-jedi'
     Plug 'ncm2/ncm2-pyclang'
 
-        " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
-    " found' messages
+    " suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
     set shortmess+=c
-
     " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
     inoremap <c-c> <ESC>
-
     " When the <Enter> key is pressed while the popup menu is visible, it only
     " hides the menu. Use this mapping to close the menu and also start a new
     " line.
     inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
     " Use <TAB> to select the popup menu:
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
     " wrap existing omnifunc
     " Note that omnifunc does not run in background and may probably block the
     " editor. If you don't want to be blocked by omnifunc too often, you could
@@ -122,14 +108,9 @@ if has('nvim')
             \ 'complete_pattern': ':\s*',
             \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
             \ })
+    " *** End ncm2 ***
 
-    " Plug 'zchee/deoplete-clang'
-    "     let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
-    "     let g:deoplete#sources#clang#clang_header='/usr/lib/clang/3.8.1/include'
-    " Plug 'tweekmonster/deoplete-clang2', { 'on': [] }
-    " Plug 'sebastianmarkow/deoplete-rust', { 'on': [] }
     " Plug 'Shougo/neoinclude.vim'
-
     " Plug 'benekastah/neomake'
     " Plug 'benekastah/neomake', { 'on': ['Neomake'] }
         " let g:neomake_python_enabled_makers = ['pyflakes']
@@ -144,9 +125,8 @@ if has('nvim')
 endif
 
 if !has('nvim')
-    " Plug 'davidhalter/jedi-vim'
-    " Plug 'uplus/vim-clang-rename' " not working
-    "     let g:clang_rename#command='/usr/bin/clang-rename-3.8'
+    Plug 'ervandew/supertab'
+        let g:SuperTabDefaultCompletionType = "<C-n>"
     set noshowmode
     syntax on
     set t_Co=256
@@ -168,9 +148,8 @@ if !has('nvim')
     set showcmd
 endif
 
-" colorscheme NeoSolarized
 " set clipboard+=unnamed
-" set colorcolumn=80
+" set colorcolumn=90
 " highlight ExtraWhitespace ctermbg=red guibg=red
 " match ExtraWhitespace /\s\+$\|\t/
 inoremap <C-z> <esc><C-z>
