@@ -67,17 +67,16 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'python-mode/python-mode' " Too slow
 
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'on': [] }
-       "  let g:deoplete#enable_at_startup = 1
-       " let g:deoplete#enable_at_startup = 0
-       " autocmd InsertEnter * call deoplete#enable()
-    Plug 'zchee/deoplete-jedi', { 'on': [] }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        let g:deoplete#enable_at_startup = 1
+    " Plug 'Shougo/neoinclude.vim'
+    Plug 'zchee/deoplete-jedi'
     " Plug 'zchee/deoplete-clang'
     "     let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
     "     let g:deoplete#sources#clang#clang_header='/usr/lib/clang/3.8.1/include'
-    Plug 'tweekmonster/deoplete-clang2', { 'on': [] }
-    Plug 'Shougo/neoinclude.vim'
-    Plug 'sebastianmarkow/deoplete-rust', { 'on': [] }
+    " Plug 'tweekmonster/deoplete-clang2', { 'on': [] }
+    " Plug 'sebastianmarkow/deoplete-rust', { 'on': [] }
+
     Plug 'benekastah/neomake'
     " Plug 'benekastah/neomake', { 'on': ['Neomake'] }
         let g:neomake_python_enabled_makers = ['pyflakes']
@@ -93,13 +92,13 @@ endif
 
 if !has('nvim')
     " Plug 'davidhalter/jedi-vim'
-    Plug 'Rip-Rip/clang_complete'
-        let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
-        let g:clang_complete_auto = 0
-        let g:clang_auto_select = 0
-        let g:clang_omnicppcomplete_compliance = 0
-        let g:clang_make_default_keymappings = 0
-        let g:clang_use_library = 1
+    " Plug 'Rip-Rip/clang_complete'
+    "     let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+    "     let g:clang_complete_auto = 0
+    "     let g:clang_auto_select = 0
+    "     let g:clang_omnicppcomplete_compliance = 0
+    "     let g:clang_make_default_keymappings = 0
+    "     let g:clang_use_library = 1
     " function! BuildYCM(info)
         " if a:info.status == 'installed' || a:info.force
         "     execute "export PATH=/usr/bin/:$PATH"
@@ -155,7 +154,7 @@ filetype plugin on
 
 so ~/.config/nvim/opti.vim
 
-" let g:python2_host_prog = expand("~") . "/miniconda3/bin/python2"
-let g:python3_host_prog = expand("~") . "/miniconda3/bin/python3"
+let g:python2_host_prog = expand("~") . "/.miniconda3/bin/python2"
+let g:python3_host_prog = expand("~") . "/.miniconda3/bin/python3"
 
 call plug#end()
