@@ -80,6 +80,10 @@ if has('nvim')
     Plug 'ncm2/ncm2-path'
     Plug 'ncm2/ncm2-jedi'
     Plug 'ncm2/ncm2-pyclang'
+    Plug 'ncm2/ncm2-racer'
+    " Plug 'ncm2/ncm2-vim'
+    Plug 'yuki-ycino/ncm2-dictionary'
+    " Plug 'ncm2/ncm2-neoinclude'
 
     " suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
     set shortmess+=c
@@ -110,7 +114,6 @@ if has('nvim')
             \ })
     " *** End ncm2 ***
 
-    " Plug 'Shougo/neoinclude.vim'
     " Plug 'benekastah/neomake'
     " Plug 'benekastah/neomake', { 'on': ['Neomake'] }
         " let g:neomake_python_enabled_makers = ['pyflakes']
