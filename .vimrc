@@ -7,22 +7,13 @@ endif
 call plug#begin(vim_folder . "/plugged")
 
 Plug 'flazz/vim-colorschemes'
-Plug 'icymind/NeoSolarized'
-Plug 'mhartington/oceanic-next'
 Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    map <C-p> :FZF<CR>
-    " let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-    " --files: List files that would be searched but do not search
-    " --no-ignore: Do not respect .gitignore, etc...
-    " --hidden: Search hidden files and folders
-    " --follow: Follow symlinks
-    " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
     let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+    map <C-p> :FZF<CR>
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
     map <C-n> :NERDTreeToggle<CR>
     let g:NERDTreeHijackNetrw=1
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle'}
 Plug 'vim-airline/vim-airline'
     set encoding=utf-8
     set laststatus=2
@@ -34,12 +25,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
     let g:airline_theme='murmur'
 Plug 'rust-lang/rust.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 
 " Plug 'lyuts/vim-rtags'
@@ -63,6 +50,12 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'uplus/vim-clang-rename' " not working
 "     let g:clang_rename#command='/usr/bin/clang-rename-3.8'
 " Plug 'jiangmiao/auto-pairs'
+" Plug 'tpope/vim-surround'
+" Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/limelight.vim'
+" Plug 'icymind/NeoSolarized'
+" Plug 'mhartington/oceanic-next'
+" Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle'}
 
 if has('nvim')
     " *** Begin ncm2 ***
