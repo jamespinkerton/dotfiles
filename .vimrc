@@ -137,10 +137,10 @@ if has('nvim')
     imap <expr> <c-j> pumvisible() ? "\<c-y>\<Plug>snipMateNextOrTrigger" : "\<Plug>snipMateNextOrTrigger"
     " " *** End snippets ***
 
-    " Plug 'benekastah/neomake'
+    Plug 'benekastah/neomake'
+        let g:neomake_python_enabled_makers = ['pyflakes']
+        let g:neomake_yaml_enabled_makers = ['yamllint']
     " Plug 'benekastah/neomake', { 'on': ['Neomake'] }
-        " let g:neomake_python_enabled_makers = ['pyflakes']
-        " let g:neomake_yaml_enabled_makers = ['yamllint']
     " Plug 'arakashic/chromatica.nvim'
     "     let g:chromatica#enable_at_startup=1
     "     let g:chromatica#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
@@ -200,3 +200,4 @@ let g:python2_host_prog = expand("~") . "/.miniconda3/bin/python2"
 let g:python3_host_prog = expand("~") . "/.miniconda3/bin/python3"
 
 call plug#end()
+call neomake#configure#automake('nw', 1000)
