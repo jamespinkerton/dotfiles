@@ -74,7 +74,7 @@ if has('nvim')
     Plug 'ncm2/ncm2-racer'
     Plug 'ncm2/ncm2-vim'
     " Plug 'yuki-ycino/ncm2-dictionary'
-    " Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+    Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
 
     " suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
     set shortmess+=c
@@ -124,12 +124,9 @@ if has('nvim')
     imap <expr> <c-k> pumvisible() ? "\<c-y>\<Plug>snipMateBack" : "\<Plug>snipMateBack"
     imap <expr> <c-j> pumvisible() ? "\<c-y>\<Plug>snipMateNextOrTrigger" : "\<Plug>snipMateNextOrTrigger"
 
-    " Plug 'benekastah/neomake'
-    "     let g:neomake_python_enabled_makers = ['pyflakes']
-    "     let g:neomake_yaml_enabled_makers = ['yamllint']
-    " Plug 'arakashic/chromatica.nvim'
-    "     let g:chromatica#enable_at_startup=1
-    "     let g:chromatica#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+    Plug 'benekastah/neomake'
+        let g:neomake_python_enabled_makers = ['pyflakes']
+        let g:neomake_yaml_enabled_makers = ['yamllint']
 
     " Plug 'autozimu/LanguageClient-neovim', {
     "     \ 'branch': 'next',
@@ -137,9 +134,13 @@ if has('nvim')
     "     \ }
     " set hidden
     " let g:LanguageClient_serverCommands = {
-    "     \ 'python': ["~/.miniconda3/bin/pyls"],
+    "     \ 'python': ["pyls"],
     " \ }
     " nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+
+    " Plug 'arakashic/chromatica.nvim'
+    "     let g:chromatica#enable_at_startup=1
+    "     let g:chromatica#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
 
     set inccommand=split
     set termguicolors
