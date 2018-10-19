@@ -1,1 +1,0 @@
-/private/home/jamespinkerton/.vimrc

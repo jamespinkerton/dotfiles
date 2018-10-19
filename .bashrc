@@ -2,10 +2,8 @@
 
 [ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f "$HOME/Downloads/google-cloud-sdk/path.bash.inc" ] && source "$HOME/Downloads/google-cloud-sdk/path.bash.inc"
-[ -f "$HOME/Downloads/google-cloud-sdk/completion.bash.inc" ] && source "$HOME/Downloads/google-cloud-sdk/completion.bash.inc"
-[ -f '/etc/bash_completion' ] && ! shopt -oq posix && source '/etc/bash_completion'
-[ -f "$HOME/.git-completion.bash" ] && source "$HOME/.git-completion.bash"
+[ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
+[ -f $HOME/.git-completion.bash ] && source $HOME/.git-completion.bash
 
 shopt -s globstar
 shopt -s extglob
@@ -14,8 +12,6 @@ shopt -s histappend
 shopt -s cmdhist
 shopt -s cdspell
 shopt -s dirspell
-export HISTCONTROL=ignoredups
-export HISTIGNORE="&:ls:[bf]g:exit"
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
     alias ls='ls --color=auto'
@@ -25,6 +21,8 @@ fi
 alias grep='grep --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias gp='rm -f ~/.git-credentials && git push'
+alias vi='nvim'
+alias vim='nvim'
 
 function vcsv {
     if [ "$(uname -s)" != "Darwin" ] && [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
@@ -35,7 +33,6 @@ function vcsv {
 }
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
-    alias vi='nvim'
     SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
     PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
