@@ -66,7 +66,7 @@ Plug 'airblade/vim-gitgutter'
 
 if has('nvim')
     " *** Begin ncm2 ***
-    Plug 'ncm2/ncm2'
+    Plug 'ncm2/ncm2', { 'do': ':UpdateRemotePlugins' }
     Plug 'roxma/nvim-yarp'
     " enable ncm2 for all buffers
     autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -79,9 +79,9 @@ if has('nvim')
     Plug 'ncm2/ncm2-jedi'
     Plug 'ncm2/ncm2-pyclang'
     Plug 'ncm2/ncm2-racer'
-    " Plug 'ncm2/ncm2-vim'
-    Plug 'yuki-ycino/ncm2-dictionary'
-    " Plug 'ncm2/ncm2-neoinclude'
+    Plug 'ncm2/ncm2-vim'
+    " Plug 'yuki-ycino/ncm2-dictionary'
+    Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
 
     " suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
     set shortmess+=c
