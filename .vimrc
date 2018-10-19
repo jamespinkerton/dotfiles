@@ -1,6 +1,3 @@
-" TODO:
-" vim clang complete
-
 let vim_folder = has('nvim') ? "~/.config/nvim/" : "~/.vim/"
 if empty(glob(vim_folder . "/autoload/plug.vim"))
     execute "! curl -fLo " . vim_folder . "/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
@@ -65,6 +62,7 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'python-mode/python-mode' " Too slow
 " Plug 'uplus/vim-clang-rename' " not working
 "     let g:clang_rename#command='/usr/bin/clang-rename-3.8'
+" Plug 'jiangmiao/auto-pairs'
 
 if has('nvim')
     " *** Begin ncm2 ***
