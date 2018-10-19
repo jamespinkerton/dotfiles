@@ -81,7 +81,7 @@ if has('nvim')
     Plug 'ncm2/ncm2-racer'
     Plug 'ncm2/ncm2-vim'
     " Plug 'yuki-ycino/ncm2-dictionary'
-    Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+    " Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
 
     " suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
     set shortmess+=c
@@ -112,48 +112,41 @@ if has('nvim')
             \ })
     " *** End ncm2 ***
 
-    " " *** Begin snippets ***
     " based on snipmate
     Plug 'ncm2/ncm2-snipmate'
-
     " snipmate dependencies
     Plug 'tomtom/tlib_vim'
     Plug 'marcweber/vim-addon-mw-utils'
     Plug 'garbas/vim-snipmate'
-
     " Press enter key to trigger snippet expansion
     " The parameters are the same as `:help feedkeys()`
     inoremap <silent> <expr> <CR> ncm2_snipmate#expand_or("\<CR>", 'n')
-
     " wrap <Plug>snipMateTrigger so that it works for both completin and normal
     " snippet
     " inoremap <expr> <c-u> ncm2_snipmate#expand_or("\<Plug>snipMateTrigger", "m")
-
     " c-j c-k for moving in snippet
     let g:snips_no_mappings = 1
     vmap <c-j> <Plug>snipMateNextOrTrigger
     vmap <c-k> <Plug>snipMateBack
     imap <expr> <c-k> pumvisible() ? "\<c-y>\<Plug>snipMateBack" : "\<Plug>snipMateBack"
     imap <expr> <c-j> pumvisible() ? "\<c-y>\<Plug>snipMateNextOrTrigger" : "\<Plug>snipMateNextOrTrigger"
-    " " *** End snippets ***
 
-    Plug 'benekastah/neomake'
-        let g:neomake_python_enabled_makers = ['pyflakes']
-        let g:neomake_yaml_enabled_makers = ['yamllint']
+    " Plug 'benekastah/neomake'
+    "     let g:neomake_python_enabled_makers = ['pyflakes']
+    "     let g:neomake_yaml_enabled_makers = ['yamllint']
     " Plug 'arakashic/chromatica.nvim'
     "     let g:chromatica#enable_at_startup=1
     "     let g:chromatica#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
 
-
-    set hidden
-    let g:LanguageClient_serverCommands = {
-        \ 'python': ["~/.miniconda3/bin/pyls"],
-    \ }
-    nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+    " Plug 'autozimu/LanguageClient-neovim', {
+    "     \ 'branch': 'next',
+    "     \ 'do': 'bash install.sh',
+    "     \ }
+    " set hidden
+    " let g:LanguageClient_serverCommands = {
+    "     \ 'python': ["~/.miniconda3/bin/pyls"],
+    " \ }
+    " nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 
     set inccommand=split
     set termguicolors
@@ -209,4 +202,4 @@ let g:python2_host_prog = expand("~") . "/.miniconda3/bin/python2"
 let g:python3_host_prog = expand("~") . "/.miniconda3/bin/python3"
 
 call plug#end()
-call neomake#configure#automake('nw', 1000)
+" call neomake#configure#automake('nw', 1000)
