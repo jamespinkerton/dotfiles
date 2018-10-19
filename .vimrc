@@ -140,12 +140,21 @@ if has('nvim')
     Plug 'benekastah/neomake'
         let g:neomake_python_enabled_makers = ['pyflakes']
         let g:neomake_yaml_enabled_makers = ['yamllint']
-    " Plug 'benekastah/neomake', { 'on': ['Neomake'] }
     " Plug 'arakashic/chromatica.nvim'
     "     let g:chromatica#enable_at_startup=1
     "     let g:chromatica#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
-    " Plug 'autozimu/LanguageClient-neovim'
-    "     let g:LanguageClient_autoStart = 1
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
+
+
+    set hidden
+    let g:LanguageClient_serverCommands = {
+        \ 'python': ["~/.miniconda3/bin/pyls"],
+    \ }
+    nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+
     set inccommand=split
     set termguicolors
 endif
