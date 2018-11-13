@@ -58,71 +58,71 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle'}
 
 if has('nvim')
-    " *** Begin ncm2 ***
-    Plug 'ncm2/ncm2', { 'do': ':UpdateRemotePlugins' }
-    Plug 'roxma/nvim-yarp'
-    " enable ncm2 for all buffers
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-    " :help Ncm2PopupOpen for more information
-    set completeopt=noinsert,menuone,noselect
-    " Wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-tmux'
-    Plug 'ncm2/ncm2-path'
-    Plug 'ncm2/ncm2-jedi'
-    Plug 'ncm2/ncm2-pyclang'
-    Plug 'ncm2/ncm2-racer'
-    Plug 'ncm2/ncm2-vim'
-    " Plug 'yuki-ycino/ncm2-dictionary'
-    " Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
-
-    " suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
-    set shortmess+=c
-    " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-    inoremap <c-c> <ESC>
-    " When the <Enter> key is pressed while the popup menu is visible, it only
-    " hides the menu. Use this mapping to close the menu and also start a new
-    " line.
-    inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-    " Use <TAB> to select the popup menu:
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-    " wrap existing omnifunc
-    " Note that omnifunc does not run in background and may probably block the
-    " editor. If you don't want to be blocked by omnifunc too often, you could
-    " add 180ms delay before the omni wrapper:
-    "  'on_complete': ['ncm2#on_complete#delay', 180,
-    "               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-    au User Ncm2Plugin call ncm2#register_source({
-            \ 'name' : 'css',
-            \ 'priority': 9,
-            \ 'subscope_enable': 1,
-            \ 'scope': ['css','scss'],
-            \ 'mark': 'css',
-            \ 'word_pattern': '[\w\-]+',
-            \ 'complete_pattern': ':\s*',
-            \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-            \ })
-    " *** End ncm2 ***
-
-    " based on snipmate
-    Plug 'ncm2/ncm2-snipmate'
-    " snipmate dependencies
-    Plug 'tomtom/tlib_vim'
-    Plug 'marcweber/vim-addon-mw-utils'
-    Plug 'garbas/vim-snipmate'
-    " Press enter key to trigger snippet expansion
-    " The parameters are the same as `:help feedkeys()`
-    inoremap <silent> <expr> <CR> ncm2_snipmate#expand_or("\<CR>", 'n')
-    " wrap <Plug>snipMateTrigger so that it works for both completin and normal
-    " snippet
-    " inoremap <expr> <c-u> ncm2_snipmate#expand_or("\<Plug>snipMateTrigger", "m")
-    " c-j c-k for moving in snippet
-    let g:snips_no_mappings = 1
-    vmap <c-j> <Plug>snipMateNextOrTrigger
-    vmap <c-k> <Plug>snipMateBack
-    imap <expr> <c-k> pumvisible() ? "\<c-y>\<Plug>snipMateBack" : "\<Plug>snipMateBack"
-    imap <expr> <c-j> pumvisible() ? "\<c-y>\<Plug>snipMateNextOrTrigger" : "\<Plug>snipMateNextOrTrigger"
+    " " *** Begin ncm2 ***
+    " Plug 'ncm2/ncm2', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'roxma/nvim-yarp'
+    " " enable ncm2 for all buffers
+    " autocmd BufEnter * call ncm2#enable_for_buffer()
+    " " :help Ncm2PopupOpen for more information
+    " set completeopt=noinsert,menuone,noselect
+    " " Wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+    " Plug 'ncm2/ncm2-bufword'
+    " Plug 'ncm2/ncm2-tmux'
+    " Plug 'ncm2/ncm2-path'
+    " Plug 'ncm2/ncm2-jedi'
+    " Plug 'ncm2/ncm2-pyclang'
+    " Plug 'ncm2/ncm2-racer'
+    " Plug 'ncm2/ncm2-vim'
+    " " Plug 'yuki-ycino/ncm2-dictionary'
+    " " Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+    "
+    " " suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
+    " set shortmess+=c
+    " " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+    " inoremap <c-c> <ESC>
+    " " When the <Enter> key is pressed while the popup menu is visible, it only
+    " " hides the menu. Use this mapping to close the menu and also start a new
+    " " line.
+    " inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+    " " Use <TAB> to select the popup menu:
+    " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " " wrap existing omnifunc
+    " " Note that omnifunc does not run in background and may probably block the
+    " " editor. If you don't want to be blocked by omnifunc too often, you could
+    " " add 180ms delay before the omni wrapper:
+    " "  'on_complete': ['ncm2#on_complete#delay', 180,
+    " "               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+    " au User Ncm2Plugin call ncm2#register_source({
+    "         \ 'name' : 'css',
+    "         \ 'priority': 9,
+    "         \ 'subscope_enable': 1,
+    "         \ 'scope': ['css','scss'],
+    "         \ 'mark': 'css',
+    "         \ 'word_pattern': '[\w\-]+',
+    "         \ 'complete_pattern': ':\s*',
+    "         \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+    "         \ })
+    " " *** End ncm2 ***
+    "
+    " " based on snipmate
+    " Plug 'ncm2/ncm2-snipmate'
+    " " snipmate dependencies
+    " Plug 'tomtom/tlib_vim'
+    " Plug 'marcweber/vim-addon-mw-utils'
+    " Plug 'garbas/vim-snipmate'
+    " " Press enter key to trigger snippet expansion
+    " " The parameters are the same as `:help feedkeys()`
+    " inoremap <silent> <expr> <CR> ncm2_snipmate#expand_or("\<CR>", 'n')
+    " " wrap <Plug>snipMateTrigger so that it works for both completin and normal
+    " " snippet
+    " " inoremap <expr> <c-u> ncm2_snipmate#expand_or("\<Plug>snipMateTrigger", "m")
+    " " c-j c-k for moving in snippet
+    " let g:snips_no_mappings = 1
+    " vmap <c-j> <Plug>snipMateNextOrTrigger
+    " vmap <c-k> <Plug>snipMateBack
+    " imap <expr> <c-k> pumvisible() ? "\<c-y>\<Plug>snipMateBack" : "\<Plug>snipMateBack"
+    " imap <expr> <c-j> pumvisible() ? "\<c-y>\<Plug>snipMateNextOrTrigger" : "\<Plug>snipMateNextOrTrigger"
 
     " Plug 'benekastah/neomake'
     "     let g:neomake_python_enabled_makers = ['pyflakes']
@@ -145,9 +145,10 @@ if has('nvim')
     set termguicolors
 endif
 
+Plug 'ervandew/supertab'
+    let g:SuperTabDefaultCompletionType = "<C-n>"
+
 if !has('nvim')
-    Plug 'ervandew/supertab'
-        let g:SuperTabDefaultCompletionType = "<C-n>"
     set noshowmode
     syntax on
     set t_Co=256
