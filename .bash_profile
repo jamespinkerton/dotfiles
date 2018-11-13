@@ -15,3 +15,6 @@ unset USERNAME
 export TZ=/usr/share/zoneinfo/US/Pacific
 
 [ -f ~/.bashrc ] && source ~/.bashrc
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
