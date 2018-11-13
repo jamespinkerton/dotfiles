@@ -12,4 +12,6 @@ export MOYO="/mnt/disks/moyo/"
 
 unset USERNAME
 
+export TZ=/usr/share/zoneinfo/US/Pacific
+
 [ -f ~/.bashrc ] && source ~/.bashrc
