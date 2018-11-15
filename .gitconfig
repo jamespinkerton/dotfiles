@@ -12,8 +12,10 @@
     st = status
     gr = grep -Ii
     ls = ls-files
-	appraise = !$GOPATH/bin/git-appraise
+    appraise = !$GOPATH/bin/git-appraise
+[diff]
+	tool = vimdiff
 [push]
-	default = simple
+    default = simple
 [http]
-	cookiefile = ~/.gitcookies
+    cookiefile = ~/.gitcookies
