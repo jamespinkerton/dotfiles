@@ -12,5 +12,6 @@
     st = status
     gr = grep -Ii
     ls = ls-files
+	appraise = !$GOPATH/bin/git-appraise
 [push]
 	default = simple
