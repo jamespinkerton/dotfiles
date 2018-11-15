@@ -15,3 +15,5 @@
 	appraise = !$GOPATH/bin/git-appraise
 [push]
 	default = simple
+[http]
+	cookiefile = ~/.gitcookies
