@@ -1,0 +1,12 @@
+[extensions]
+color =
+[color]
+mode = auto
+custom.rev = red
+custom.decorate = yellow
+custom.date = green
+custom.author = blue bold
+[pager]
+pager = LESS='eiFRSXQ' less
+[extensions]
+pager =
