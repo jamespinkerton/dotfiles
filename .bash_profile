@@ -1,22 +1,17 @@
-export PATH=$HOME/.miniconda3/bin:$PATH
-export PATH=$HOME/miniconda3/bin:$PATH
+# export PATH=$HOME/.miniconda3/bin:$PATH
+# export PATH=$HOME/miniconda3/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.neovim/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export GOPATH=$HOME/go
 export EDITOR=nvim
 export HISTFILESIZE=10000
 export HISTSIZE=200
 export HISTCONTROL=ignoredups
 export HISTIGNORE="&:ls:[bf]g:exit"
 export TMX="tmux new -A -s main"
-export MOYO="/mnt/disks/moyo/"
+export TZ='America/New_York'
+# export TZ=/usr/share/zoneinfo/US/Eastern
 
 unset USERNAME
-
-export TZ=/usr/share/zoneinfo/US/Pacific
-
-[ -f ~/.bashrc ] && source ~/.bashrc
-
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
+[ -f ~/.bashrc ] && source ~/.bashrc

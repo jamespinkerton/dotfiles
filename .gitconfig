@@ -13,6 +13,9 @@
     gr = grep -Ii
     ls = ls-files
     appraise = !$GOPATH/bin/git-appraise
+    id = rev-parse --short HEAD
+    count = rev-list --count HEAD
+    url = remote get-url origin
 [diff]
 	tool = vimdiff
 [push]

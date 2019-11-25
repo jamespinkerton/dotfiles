@@ -1,7 +1,6 @@
 [ -z "$PS1" ] && return
-
 [ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
 [ -f $HOME/.git-completion.bash ] && source $HOME/.git-completion.bash
 
@@ -23,6 +22,8 @@ alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias gp='rm -f ~/.git-credentials && git push'
 alias vi='nvim'
 alias vim='nvim'
+alias hl="hg log --style ~/.hgrc.d/fancy.style"
+alias hhl="hg log -G --style ~/.hgrc.d/fancy.style"
 
 function vcsv {
     if [ "$(uname -s)" != "Darwin" ] && [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
@@ -32,13 +33,20 @@ function vcsv {
     fi
 }
 
+function tcsv {
+    python -c "import pandas as pd; import tabulate; print(tabulate.tabulate(pd.read_csv(\"$@\"), headers='keys', tablefmt='psql', showindex=False))"
+}
+
+function hcsv {
+    python -c "import pandas as pd; import tabulate; print(tabulate.tabulate(pd.read_csv(\"$@\"), headers='keys', tablefmt='html', showindex=False))"
+}
+
+function mail_html {
+    mail -s "$(echo -e "Terminal Email\nContent-Type: text/html")"
+}
+
 if [[ "$(uname -s)" != "Darwin" ]]; then
     SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
     PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
 fi
-
-DEVFAIR="devfair0168"
-alias ssh_tunnel_h2="ssh -f $USER@$DEVFAIR -L 25565:$DEVFAIR:25565 -N"
-alias login_h2="mosh prn-fairjmp01 -- ssh -t $DEVFAIR 'tmux new -A -s main'"
-alias mount_h2="sshfs $USER@$DEVFAIR:/private/home/$USER h2_home -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=H2_MOUNT"
