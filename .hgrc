@@ -10,3 +10,6 @@ custom.author = blue bold
 pager = LESS='eiFRSXQ' less
 [extensions]
 pager =
+purge =
+[ui]
+username = James Pinkerton <jpinkerton@latourtrading.com>

@@ -1,8 +1,7 @@
 import numpy as np
+np.set_printoptions(linewidth=200)
 import pandas as pd
-# import sklearn
-# try:
-#     import matplotlib.pyplot as plt
-#     import seaborn as sns
-# except:
-#     print("Can't import plt, sns.")
+import matplotlib.pyplot as plt
+plt.style.use('dark_background')
+import pickle
+import seaborn as sns

@@ -1,6 +1,6 @@
 [ -z "$PS1" ] && return
 [ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
-[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
 [ -f $HOME/.git-completion.bash ] && source $HOME/.git-completion.bash
 
@@ -24,6 +24,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias hl="hg log --style ~/.hgrc.d/fancy.style"
 alias hhl="hg log -G --style ~/.hgrc.d/fancy.style"
+alias v="python/view.py"
 
 function vcsv {
     if [ "$(uname -s)" != "Darwin" ] && [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
@@ -33,12 +34,8 @@ function vcsv {
     fi
 }
 
-function tcsv {
-    python -c "import pandas as pd; import tabulate; print(tabulate.tabulate(pd.read_csv(\"$@\"), headers='keys', tablefmt='psql', showindex=False))"
-}
-
-function hcsv {
-    python -c "import pandas as pd; import tabulate; print(tabulate.tabulate(pd.read_csv(\"$@\"), headers='keys', tablefmt='html', showindex=False))"
+function gvcsv {
+    gsutil cat $1 | vcsv
 }
 
 function mail_html {
@@ -50,3 +47,15 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
     PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
 fi
+
+export ITERMPLOT=
+export MPLBACKEND="module://itermplot"
+export ITERMPLOT_LINES=70
+
+# chmod g+rwx
+# jupyter notebook --ip 0.0.0.0
+# http://10.143.128.21:8888/
+
+# tmux -S /tmp/nwani.shared new
+# chmod 777 /tmp/nwani.shared
+# gsutil perfdiag -o output.json -s 100M gs://latour-jpinkerton-central1
