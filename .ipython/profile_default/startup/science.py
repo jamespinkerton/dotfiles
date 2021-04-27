@@ -5,3 +5,7 @@ import matplotlib.pyplot as plt
 plt.style.use('dark_background')
 import pickle
 import seaborn as sns
+
+import warnings
+import matplotlib.cbook
+warnings.filterwarnings("ignore",category=matplotlib.cbook.mplDeprecation)

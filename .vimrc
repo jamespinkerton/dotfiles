@@ -35,6 +35,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = "<C-n>"
 Plug 'metakirby5/codi.vim'
+" Plug 'dense-analysis/ale'
 call plug#end()
 
 set noshowmode
