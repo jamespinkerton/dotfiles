@@ -35,7 +35,23 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = "<C-n>"
 Plug 'metakirby5/codi.vim'
-" Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
+    let b:ale_fixers = {'python': ['black']}
+    let g:ale_linters = {'python': ['mypy', 'pyflakes']}
+    let g:ale_linters_explicit = 1
+    let g:ale_lint_on_save = 1
+    let g:ale_fix_on_save = 1
+    let g:ale_lint_on_text_changed = 'never'
+    let g:ale_lint_on_insert_leave = 0
+    let g:ale_lint_on_enter = 0
+    let g:airline#extensions#ale#enabled = 1
+    " let g:ale_python_autoimport = 1
+    " let g:ale_completion_autoimport = 1
+    " let g:ale_completion_enabled = 1
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 set noshowmode
@@ -52,6 +68,9 @@ filetype indent plugin on
 set notimeout ttimeout ttimeoutlen=200
 set showcmd
 inoremap <C-z> <esc><C-z>
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
 set background=dark
 set ignorecase smartcase
 set visualbell t_vb=

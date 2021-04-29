@@ -19,12 +19,9 @@ else
 fi
 alias grep='grep --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias gp='rm -f ~/.git-credentials && git push'
 alias vi='nvim'
-alias vim='nvim'
 alias hl="hg log --style ~/.hgrc.d/fancy.style"
 alias hhl="hg log -G --style ~/.hgrc.d/fancy.style"
-alias v="python/view.py"
 
 function vcsv {
     if [ "$(uname -s)" != "Darwin" ] && [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
@@ -48,7 +45,7 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
     PROMPT_COMMAND=
 fi
 
-export ITERMPLOT=
+# export ITERMPLOT=
 export MPLBACKEND="module://itermplot"
 export ITERMPLOT_LINES=70
 
