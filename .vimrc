@@ -5,12 +5,11 @@ if empty(glob(vim_folder . "/autoload/plug.vim"))
 endif
 
 call plug#begin(vim_folder . "/plugged")
+Plug 'scrooloose/nerdtree'
+    map <C-n> :NERDTreeToggle<CR>
+Plug 'tomtom/tcomment_vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
-    map <C-n> :NERDTreeToggle<CR>
-    let g:NERDTreeHijackNetrw=1
-Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
     map <C-p> :FZF<CR>
