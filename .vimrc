@@ -11,9 +11,9 @@ Plug 'tomtom/tcomment_vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-    map <C-p> :FZF<CR>
-    " map <C-p> :FzfPreviewGitFilesRpc<CR>
+    " let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+    " map <C-p> :FZF<CR>
+    map <C-p> :FzfPreviewGitFilesRpc<CR>
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'itchyny/lightline.vim'
 Plug 'villainy/murmur-lightline'
@@ -63,8 +63,13 @@ call plug#end()
 
 if has('nvim')
     set inccommand=split
+    :tnoremap <Esc> <C-\><C-n>
     " set termguicolors
 endif
+
+" set fillchars+=vert:│
+" highlight VertSplit cterm=NONE
+
 set noshowmode
 syntax on
 set t_Co=256

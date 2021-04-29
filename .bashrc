@@ -4,6 +4,8 @@
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
 [ -f $HOME/.git-completion.bash ] && source $HOME/.git-completion.bash
 
+bind -x '"\C-r": $SHELL -c "$FZF_DEFAULT_COMMAND" && __fzf_history__'
+
 shopt -s globstar
 shopt -s extglob
 shopt -s checkwinsize
