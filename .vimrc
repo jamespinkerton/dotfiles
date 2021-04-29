@@ -45,13 +45,24 @@ Plug 'dense-analysis/ale'
     let g:ale_lint_on_insert_leave = 0
     let g:ale_lint_on_enter = 0
     let g:airline#extensions#ale#enabled = 1
-    " let g:ale_python_autoimport = 1
-    " let g:ale_completion_autoimport = 1
-    " let g:ale_completion_enabled = 1
     nmap <silent> <C-k> <Plug>(ale_previous_wrap)
     nmap <silent> <C-j> <Plug>(ale_next_wrap)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+    nmap <leader>rn <Plug>(coc-rename)
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
+    function! s:show_documentation()
+        if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        elseif (coc#rpc#ready())
+            call CocActionAsync('doHover')
+        else
+            execute '!' . &keywordprg . " " . expand('<cword>')
+        endif
+    endfunction
 call plug#end()
 
 set noshowmode
@@ -83,7 +94,6 @@ autocmd Filetype cpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype h setlocal tabstop=2 shiftwidth=2
 autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
 filetype plugin on
-" so ~/.config/nvim/opti.vim
-" set clipboard+=unnamed
-" highlight ExtraWhitespace ctermbg=red guibg=red
-" match ExtraWhitespace /\s\+$\|\t/
+set clipboard+=unnamed
+map <Leader>y "*y
+map <Leader>p "*p
