@@ -4,33 +4,21 @@ if empty(glob(vim_folder . "/autoload/plug.vim"))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-if has('nvim')
-    set inccommand=split
-    " set termguicolors
-endif
-
 call plug#begin(vim_folder . "/plugged")
 Plug 'flazz/vim-colorschemes'
-Plug 'tomtom/tcomment_vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    " let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-    " map <C-p> :FZF<CR>
-    map <C-p> :FzfPreviewGitFilesRpc<CR>
-Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
     map <C-n> :NERDTreeToggle<CR>
     let g:NERDTreeHijackNetrw=1
-Plug 'vim-airline/vim-airline'
-    set encoding=utf-8
-    set laststatus=2
-    set ttimeoutlen=50
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#show_buffers = 0
-    let g:airline#extensions#tabline#show_tab_type = 0
-    let g:airline#extensions#tabline#tab_min_count = 2
-    let g:airline_powerline_fonts = 1
-Plug 'vim-airline/vim-airline-themes'
-    let g:airline_theme='murmur'
+Plug 'tomtom/tcomment_vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+    " map <C-p> :FZF<CR>
+    map <C-p> :FzfPreviewGitFilesRpc<CR>
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'itchyny/lightline.vim'
+Plug 'villainy/murmur-lightline'
+let g:lightline = { 'colorscheme': 'murmur' }
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
@@ -68,6 +56,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     endfunction
 call plug#end()
 
+if has('nvim')
+    set inccommand=split
+    " set termguicolors
+endif
 set noshowmode
 syntax on
 set t_Co=256
