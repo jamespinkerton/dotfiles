@@ -13,8 +13,8 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-    " map <C-p> :FZF<CR>
-    map <C-p> :FzfPreviewGitFilesRpc<CR>
+    map <C-p> :FZF<CR>
+    " map <C-p> :FzfPreviewGitFilesRpc<CR>
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'itchyny/lightline.vim'
 Plug 'villainy/murmur-lightline'
@@ -23,6 +23,12 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
+    highlight! link SignColumn LineNr
+    let g:gitgutter_set_sign_backgrounds = 1
+    highlight GitGutterAdd guifg=#009900 ctermfg=2
+    highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+    highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+    autocmd BufWritePost * GitGutter
 Plug 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = "<C-n>"
 Plug 'metakirby5/codi.vim'
