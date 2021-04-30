@@ -10,11 +10,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    " let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-    " map <C-p> :FZF<CR>
-    map <C-p> :FzfPreviewGitFilesRpc<CR>
-Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'junegunn/fzf', { 'do': './install --all' }
+    let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+    map <C-p> :FZF<CR>
+" Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+"     map <C-p> :FzfPreviewGitFilesRpc<CR>
+
 Plug 'itchyny/lightline.vim'
 Plug 'villainy/murmur-lightline'
 let g:lightline = { 'colorscheme': 'murmur' }
@@ -31,18 +32,20 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = "<C-n>"
 Plug 'metakirby5/codi.vim'
-Plug 'dense-analysis/ale'
-    let b:ale_fixers = {'python': ['black']}
-    let g:ale_linters = {'python': ['mypy', 'pyflakes']}
-    let g:ale_linters_explicit = 1
-    let g:ale_lint_on_save = 1
-    let g:ale_fix_on_save = 1
-    let g:ale_lint_on_text_changed = 'never'
-    let g:ale_lint_on_insert_leave = 0
-    let g:ale_lint_on_enter = 0
-    let g:airline#extensions#ale#enabled = 1
-    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" Plug 'dense-analysis/ale'
+"     let b:ale_fixers = {'python': ['black']}
+"     let g:ale_linters = {'python': ['mypy', 'pyflakes']}
+"     let g:ale_linters_explicit = 1
+"     let g:ale_lint_on_save = 1
+"     let g:ale_fix_on_save = 1
+"     let g:ale_lint_on_text_changed = 'never'
+"     let g:ale_lint_on_insert_leave = 0
+"     let g:ale_lint_on_enter = 0
+"     let g:airline#extensions#ale#enabled = 1
+"     nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"     nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
     nmap <leader>rn <Plug>(coc-rename)
     nmap <silent> gd <Plug>(coc-definition)
@@ -63,7 +66,9 @@ call plug#end()
 
 if has('nvim')
     set inccommand=split
-    :tnoremap <Esc> <C-\><C-n>
+    " :tnoremap <Esc> <C-\><C-n>
+    " autocmd TermOpen term://* startinsert
+
     " set termguicolors
 endif
 
