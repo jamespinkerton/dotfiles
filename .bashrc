@@ -1,10 +1,9 @@
 [ -z "$PS1" ] && return
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f ~/.forgit/forgit.plugin.sh ] && source ~/.forgit/forgit.plugin.sh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+# [ -f ~/.forgit/forgit.plugin.sh ] && source ~/.forgit/forgit.plugin.sh
 # export FORGIT_LOG_FORMAT="'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
-export FORGIT_LOG_FORMAT=
-unalias gi
+# export FORGIT_LOG_FORMAT=
 [ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
 [ -f $HOME/.git-completion.bash ] && source $HOME/.git-completion.bash
@@ -25,6 +24,7 @@ fi
 alias grep='grep --color=auto'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vi='nvim'
+alias vim='nvim'
 alias hl="hg log --style ~/.hgrc.d/fancy.style"
 alias hhl="hg log -G --style ~/.hgrc.d/fancy.style"
 

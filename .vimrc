@@ -5,17 +5,20 @@ if empty(glob(vim_folder . "/autoload/plug.vim"))
 endif
 
 call plug#begin(vim_folder . "/plugged")
+Plug 'tpope/vim-surround'
+Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
-    map <C-n> :NERDTreeToggle<CR>
+    noremap <C-n> :NERDTreeToggle<CR>
 Plug 'tomtom/tcomment_vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': './install --all' }
-    let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-    map <C-p> :FZF<CR>
-" Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-"     map <C-p> :FzfPreviewGitFilesRpc<CR>
-
+    noremap <C-p> :FZF<CR>
+    nnoremap <silent> <Leader>b :Buffers<CR>
+    nnoremap <silent> <Leader>f :Rg<CR>
+Plug 'junegunn/fzf.vim'
+Plug 'bfredl/nvim-ipy'
+" Plug 'ivanov/vim-ipython'
 Plug 'itchyny/lightline.vim'
 Plug 'villainy/murmur-lightline'
 let g:lightline = { 'colorscheme': 'murmur' }
@@ -62,40 +65,28 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
             execute '!' . &keywordprg . " " . expand('<cword>')
         endif
     endfunction
+if !has('nvim')
+    Plug 'noahfrederick/vim-neovim-defaults'
+endif
 call plug#end()
 
 if has('nvim')
     set inccommand=split
     " :tnoremap <Esc> <C-\><C-n>
     " autocmd TermOpen term://* startinsert
-
     " set termguicolors
 endif
 
-" set fillchars+=vert:│
-" highlight VertSplit cterm=NONE
-
 set noshowmode
-syntax on
 set t_Co=256
-set nocompatible
-set hlsearch
-set backspace=indent,eol,start
-set ruler
-set wildmenu
-set autoindent
-set smarttab
 filetype indent plugin on
 set notimeout ttimeout ttimeoutlen=200
-set showcmd
 inoremap <C-z> <esc><C-z>
-noremap <silent> <C-S> :update<CR>
-vnoremap <silent> <C-S> <C-C>:update<CR>
-inoremap <silent> <C-S> <C-O>:update<CR>
-set background=dark
+noremap <silent> <C-s> :update<CR>
+vnoremap <silent> <C-s> <C-c>:update<CR>
+inoremap <silent> <C-s> <C-o>:update<CR>
 set ignorecase smartcase
 set visualbell t_vb=
-set nostartofline
 set hidden
 set confirm
 set expandtab tabstop=4 shiftwidth=4
