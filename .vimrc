@@ -61,9 +61,12 @@ if has('nvim')
     " :tnoremap <Esc> <C-\><C-n>
     " autocmd TermOpen term://* startinsert
     " set termguicolors
+    " set clipboard+=unnamed
+    " map <Leader>y "*y
+    " map <Leader>p "*p
 endif
 
-set noshowmode
+" set hidden
 set t_Co=256
 filetype indent plugin on
 set notimeout ttimeout ttimeoutlen=200
@@ -73,14 +76,6 @@ vnoremap <silent> <C-s> <C-c>:update<CR>
 inoremap <silent> <C-s> <C-o>:update<CR>
 set ignorecase smartcase
 set visualbell t_vb=
-set hidden
 set confirm
 set expandtab tabstop=4 shiftwidth=4
-autocmd Filetype c setlocal tabstop=2 shiftwidth=2
-autocmd Filetype cpp setlocal tabstop=2 shiftwidth=2
-autocmd Filetype h setlocal tabstop=2 shiftwidth=2
-autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
 filetype plugin on
-set clipboard+=unnamed
-map <Leader>y "*y
-map <Leader>p "*p
