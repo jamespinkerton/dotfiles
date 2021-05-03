@@ -2,7 +2,9 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.forgit/forgit.plugin.sh ] && source ~/.forgit/forgit.plugin.sh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FORGIT_LOG_FORMAT="'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+# export FORGIT_LOG_FORMAT="'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+export FORGIT_LOG_FORMAT=
+unalias gi
 [ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
 [ -f $HOME/.git-completion.bash ] && source $HOME/.git-completion.bash
@@ -33,7 +35,7 @@ insert() {
 bind $'"\u200b":"foo "'
 
 fh() {
-  OPTS="--height ${FZF_TMUX_HEIGHT:-40%} -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort,ctrl-z:ignore +m"
+  OPTS="--height ${FZF_TMUX_HEIGHT:-40%} -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort,ctrl-z:ignore +m +s --tac"
   insert $(history | fzf $OPTS | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
 
