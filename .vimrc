@@ -78,14 +78,14 @@ call plug#end()
 
 " autocmd VimEnter * TSInstall python
 
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
-    sync_install = false,
-    highlight = {
-        enable = true,
-        disable = {},
-        additional_vim_regex_highlighting = {"python"},
-    },
-}
-EOF
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"     ensure_installed = "maintained",
+"     sync_install = false,
+"     highlight = {
+"         enable = true,
+"         disable = {},
+"         additional_vim_regex_highlighting = {"python"},
+"     },
+" }
+" EOF

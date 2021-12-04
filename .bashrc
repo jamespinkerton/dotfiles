@@ -78,11 +78,3 @@ fi
 export ITERMPLOT=
 export MPLBACKEND="module://itermplot"
 export ITERMPLOT_LINES=70
-
-# chmod g+rwx
-# jupyter notebook --ip 0.0.0.0
-# http://10.143.128.21:8888/
-
-# tmux -S /tmp/nwani.shared new
-# chmod 777 /tmp/nwani.shared
-# gsutil perfdiag -o output.json -s 100M gs://latour-jpinkerton-central1
