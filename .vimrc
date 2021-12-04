@@ -1,28 +1,31 @@
-let vim_folder = has('nvim') ? "~/.config/nvim/" : "~/.vim/"
-if empty(glob(vim_folder . "/autoload/plug.vim"))
-    execute "! curl -fLo " . vim_folder . "/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+if empty(glob("~/.config/nvim/autoload/plug.vim"))
+    execute "! curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+call plug#begin("~/.config/nvim/plugged")
 
-call plug#begin(vim_folder . "/plugged")
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'preservim/tagbar'
+    nmap <F8> :TagbarToggle<CR>
 Plug 'tpope/vim-surround'
-Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
     noremap <C-n> :NERDTreeToggle<CR>
+Plug 'mbbill/undotree'
+    nnoremap <F5> :UndotreeToggle<CR>
 Plug 'tomtom/tcomment_vim'
-Plug 'flazz/vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
     noremap <C-p> :FZF<CR>
     nnoremap <silent> <Leader>b :Buffers<CR>
     nnoremap <silent> <Leader>f :Rg<CR>
-Plug 'junegunn/fzf.vim'
-Plug 'bfredl/nvim-ipy'
-" Plug 'ivanov/vim-ipython'
+    nnoremap <silent> <Leader>g :Commits<CR>
+    nnoremap <silent> <Leader>j :History<CR>
+    nnoremap <silent> <Leader>t :Tags<CR>
+    let g:fzf_tags_command = 'git ls-files | ctags --links=no -L- '
 Plug 'itchyny/lightline.vim'
 Plug 'villainy/murmur-lightline'
-let g:lightline = { 'colorscheme': 'murmur' }
-Plug 'rust-lang/rust.vim'
+    let g:lightline = { 'colorscheme': 'murmur' }
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
@@ -51,22 +54,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
             execute '!' . &keywordprg . " " . expand('<cword>')
         endif
     endfunction
-if !has('nvim')
-    Plug 'noahfrederick/vim-neovim-defaults'
-endif
-call plug#end()
+" Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+Plug 'antoinemadec/coc-fzf'
+    nnoremap <silent> <Leader>e :<C-u>CocFzfList diagnostics<CR>
+    nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
 
-if has('nvim')
-    set inccommand=split
-    " :tnoremap <Esc> <C-\><C-n>
-    " autocmd TermOpen term://* startinsert
-    " set termguicolors
-    " set clipboard+=unnamed
-    " map <Leader>y "*y
-    " map <Leader>p "*p
-endif
-
-" set hidden
 set t_Co=256
 filetype indent plugin on
 set notimeout ttimeout ttimeoutlen=200
@@ -78,4 +70,22 @@ set ignorecase smartcase
 set visualbell t_vb=
 set confirm
 set expandtab tabstop=4 shiftwidth=4
-filetype plugin on
+set inccommand=split
+" set clipboard+=unnamed
+" map <Leader>y "*y
+" map <Leader>p "*p
+call plug#end()
+
+" autocmd VimEnter * TSInstall python
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  sync_install = false,
+  highlight = {
+    enable = true,
+    disable = {},
+    additional_vim_regex_highlighting = {"python"},
+  },
+}
+EOF
