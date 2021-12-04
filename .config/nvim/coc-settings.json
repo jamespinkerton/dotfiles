@@ -1,6 +1,7 @@
 {
     "suggest.autoTrigger": "none",
     "diagnostic.enable": false,
+    "signature.target": "echo",
     "diagnostic.messageTarget": "echo",
     "jedi.jediSettings.autoImportModules": ["numpy", "pandas"],
     "diagnostic-languageserver.formatFiletypes": {"python": ["black"]}
