@@ -2,7 +2,7 @@ export EDITOR=nvim
 export HISTFILESIZE=10000
 export HISTSIZE=200
 export HISTCONTROL=ignoredups
-export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTIGNORE='&:ls:[bf]g:exit'
 export TZ='America/New_York'
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
@@ -30,12 +30,12 @@ else
     alias ls='gls --color=auto'
 fi
 alias grep='grep --color=auto'
-alias config='git --git-dir=~/.cfg/ --work-tree=~'
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vi='nvim'
 alias vim='nvim'
-alias hl="hg log --style ~/.hgrc.d/fancy.style"
-alias hhl="hg log -G --style ~/.hgrc.d/fancy.style"
-alias m="python/make.py"
+alias hl='hg log --style $HOME/.hgrc.d/fancy.style'
+alias hhl='hg log -G --style $HOME/.hgrc.d/fancy.style'
+alias m='python/make.py'
 
 function vcsv {
     /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
