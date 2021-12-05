@@ -1,4 +1,11 @@
-[ -z "$PS1" ] && return
+export EDITOR=nvim
+export HISTFILESIZE=10000
+export HISTSIZE=200
+export HISTCONTROL=ignoredups
+export HISTIGNORE="&:ls:[bf]g:exit"
+export TZ='America/New_York'
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
