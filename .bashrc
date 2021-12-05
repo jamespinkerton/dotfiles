@@ -42,16 +42,9 @@ insert() {
 }
 bind $'"\u200b":"foo "'
 
-fh() {
-  OPTS="--height ${FZF_TMUX_HEIGHT:-40%} -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort,ctrl-z:ignore +m +s --tac"
-  insert $(history | fzf $OPTS | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
-}
-
 fdiff() {
   git diff $@ --name-only | fzf -m --ansi --preview 'git diff $@ --color=always -- {-1}'
 }
-
-# bind -x '"\C-r": fh'
 
 function vcsv {
     if [ "$(uname -s)" != "Darwin" ] && [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
@@ -75,6 +68,6 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
     PROMPT_COMMAND=
 fi
 
-export ITERMPLOT=
-export MPLBACKEND="module://itermplot"
-export ITERMPLOT_LINES=70
+# export ITERMPLOT=
+# export MPLBACKEND="module://itermplot"
+# export ITERMPLOT_LINES=70
