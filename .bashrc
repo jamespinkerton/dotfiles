@@ -2,11 +2,8 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_DEFAULT_COMMAND="fd ."
-# export FZF_CTRL_T_COMMAND="fd . $HOME"
-# export FZF_ALT_C_COMMAND="fd -t d . $HOME"
-# [ -f ~/.forgit/forgit.plugin.sh ] && source ~/.forgit/forgit.plugin.sh
-# export FORGIT_LOG_FORMAT="'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+[ -f ~/.forgit/forgit.plugin.sh ] && source ~/.forgit/forgit.plugin.sh
+export FORGIT_LOG_FORMAT="'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 # export FORGIT_LOG_FORMAT=
 [ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
@@ -31,31 +28,10 @@ alias vi='nvim'
 alias vim='nvim'
 alias hl="hg log --style ~/.hgrc.d/fancy.style"
 alias hhl="hg log -G --style ~/.hgrc.d/fancy.style"
-alias main="python/main.py"
 alias m="python/make.py"
-alias lint="bin/lint"
-
-export JOBLOGS="/n/nfs/latour/jpinkerton/joblogs/$(date '+%Y%m%d')"
-
-insert() {
-  /usr/bin/perl -le 'require "sys/ioctl.ph"; ioctl(STDIN, &TIOCSTI, $_) for split "", join " ", @ARGV' -- "$@"
-}
-bind $'"\u200b":"foo "'
-
-fdiff() {
-  git diff $@ --name-only | fzf -m --ansi --preview 'git diff $@ --color=always -- {-1}'
-}
 
 function vcsv {
-    if [ "$(uname -s)" != "Darwin" ] && [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
-        column -t -s, -n "$@" | less -F -S -X -K
-    else
-        /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
-    fi
-}
-
-function gvcsv {
-    gsutil cat $1 | vcsv
+    /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
 }
 
 function mail_html {
@@ -67,7 +43,3 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
     PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
 fi
-
-# export ITERMPLOT=
-# export MPLBACKEND="module://itermplot"
-# export ITERMPLOT_LINES=70
