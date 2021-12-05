@@ -7,7 +7,7 @@ export TZ='America/New_York'
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FORGIT_LOG_FORMAT="'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+export FORGIT_LOG_FORMAT="%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.forgit/forgit.plugin.sh ] && source ~/.forgit/forgit.plugin.sh
