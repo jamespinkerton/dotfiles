@@ -4,16 +4,17 @@ export HISTSIZE=200
 export HISTCONTROL=ignoredups
 export HISTIGNORE="&:ls:[bf]g:exit"
 export TZ='America/New_York'
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FORGIT_LOG_FORMAT="'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.forgit/forgit.plugin.sh ] && source ~/.forgit/forgit.plugin.sh
-export FORGIT_LOG_FORMAT="'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
-[ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
-[ -f $HOME/.git-completion.bash ] && source $HOME/.git-completion.bash
+[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
+[ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
 
 shopt -s globstar
 shopt -s extglob
@@ -29,7 +30,7 @@ else
     alias ls='gls --color=auto'
 fi
 alias grep='grep --color=auto'
-alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='git --git-dir=~/.cfg/ --work-tree=~'
 alias vi='nvim'
 alias vim='nvim'
 alias hl="hg log --style ~/.hgrc.d/fancy.style"
