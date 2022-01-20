@@ -18,6 +18,7 @@ export FORGIT_LOG_FORMAT="%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
 [ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
 [ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
+[ -f ~/.git_prompt.sh ] && source ~/.git_prompt.sh
 
 shopt -s globstar
 shopt -s extglob
@@ -50,10 +51,10 @@ function mail_html {
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
     SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
-    PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
+    PS1="$SMILEY\[\e[36m\] @\h \w$(__git_ps1 " (%s)") $ \[\e[37m\]"
     PROMPT_COMMAND=
 fi
 
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
-bind '"\e[Z":menu-complete-backward'
+# bind 'set show-all-if-ambiguous on'
+# bind 'TAB:menu-complete'
+# bind '"\e[Z":menu-complete-backward'
