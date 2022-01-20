@@ -59,3 +59,10 @@ fi
 # bind 'set show-all-if-ambiguous on'
 # bind 'TAB:menu-complete'
 # bind '"\e[Z":menu-complete-backward'
+
+# tmux -S /tmp/<name>.shared new
+# chmod 777 /tmp/<name>.shared
+
+# gsutil perfdiag -o output.json -s 100M gs://<bucket>
+
+# conda create --clone /n/local_nvme/conda_envs/ohka_env -p /n/gpfs0/latour_ssd/jpinkerton/conda_envs/shared_ohka_env
