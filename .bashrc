@@ -51,7 +51,8 @@ function mail_html {
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
     SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
-    PS1="$SMILEY\[\e[36m\] @\h \w$(__git_ps1 " (%s)") $ \[\e[37m\]"
+    # PS1="$SMILEY\[\e[36m\] @\h \w$(__git_ps1 " (%s)") $ \[\e[37m\]"
+    PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
     PROMPT_COMMAND=
 fi
 
