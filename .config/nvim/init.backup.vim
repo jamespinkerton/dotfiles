@@ -19,6 +19,7 @@ nnoremap <silent> <Leader>b :call fzf#run({
 \   'down':    len(<sid>buflist()) + 2
 \ })<CR>
 
+set mouse=
 
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
     execute "! curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
