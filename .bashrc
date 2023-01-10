@@ -1,6 +1,8 @@
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.neovim/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+# export PATH=/mnt/disks/condaman/research_env/bin:$PATH
+export PATH=/mnt/disks/condaman/mambaforge/bin:$PATH
 export EDITOR=nvim
 export HISTFILESIZE=10000
 export HISTSIZE=200
@@ -27,6 +29,8 @@ shopt -s histappend
 shopt -s cmdhist
 shopt -s cdspell
 shopt -s dirspell
+
+set colored-stats on
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
     alias ls='ls --color=auto'
