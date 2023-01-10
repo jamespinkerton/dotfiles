@@ -7,7 +7,6 @@ export HISTSIZE=200
 export HISTCONTROL=ignoredups
 export HISTIGNORE='&:ls:[bf]g:exit'
 export TZ='America/New_York'
-
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
