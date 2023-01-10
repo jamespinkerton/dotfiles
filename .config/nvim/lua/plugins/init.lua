@@ -1,7 +1,5 @@
 return {
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  -- 'navarasu/onedark.nvim', -- Theme inspired by Atom
   {
     'lewis6991/gitsigns.nvim',
     config = function ()
@@ -24,7 +22,6 @@ return {
       vim.keymap.set('n', '<leader>gg', ':LazyGit<enter>')
     end
   },
-
   {
     'nvim-tree/nvim-tree.lua',
     config = function ()
@@ -41,9 +38,6 @@ return {
       vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
     end
   },
-
-
-  'navarasu/onedark.nvim', -- Theme inspired by Atom
   { -- Fancier statusline
     'nvim-lualine/lualine.nvim',
     config = function ()
@@ -78,14 +72,5 @@ return {
       -- vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
       -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end,
-  },
-
-  'ibhagwan/fzf-lua',
-  {
-    'junegunn/fzf',
-    build = './install --bin',
-    -- config = function ()
-    --   vim.keymap.set('n', '<C-p>', ':FZF<enter>')
-    -- end,
   },
 }

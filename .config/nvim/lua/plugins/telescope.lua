@@ -53,13 +53,25 @@ return {
     end,
   },
   -- Fuzzy Finder Algorithm which dependencies local dependencies to be built. Only load if `make` is available
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    cond = vim.fn.executable 'make' == 1,
-    config = function ()
-      -- Enable telescope fzf native, if installed
-      pcall(require('telescope').load_extension, 'fzf')
-    end,
-  },
+  -- {
+  --   'nvim-telescope/telescope-fzf-native.nvim',
+  --   build = 'make',
+  --   -- cond = vim.fn.executable 'make' == 1,
+  --   config = function ()
+  --     -- Enable telescope fzf native, if installed
+  --     require('telescope').load_extension('fzf')
+  --   end,
+  --   dependencies = {
+  --     'junegunn/fzf',
+  --     build = './install --bin',
+  --   },
+  -- },
+  -- 'ibhagwan/fzf-lua',
+  -- {
+  --   'junegunn/fzf',
+  --   build = './install --bin',
+  --   -- config = function ()
+  --   --   vim.keymap.set('n', '<C-p>', ':FZF<enter>')
+  --   -- end,
+  -- },
 }
