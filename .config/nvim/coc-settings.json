@@ -1,7 +1,0 @@
-{
-    "suggest.autoTrigger": "none",
-    "diagnostic.enable": false,
-    "signature.target": "echo",
-    "diagnostic.messageTarget": "echo",
-    "diagnostic-languageserver.formatFiletypes": {"python": ["black"]}
-}
