@@ -1,5 +1,15 @@
 return {
   {
+    "akinsho/toggleterm.nvim",
+    version = '*',
+    config = function()
+      require("toggleterm").setup({
+        open_mapping = [[<c-\>]],
+        direction = "float",
+      })
+    end,
+  },
+  {
     "ggandor/leap.nvim",
     config = function()
       require('leap').add_default_mappings()
