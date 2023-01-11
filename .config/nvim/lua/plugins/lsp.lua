@@ -2,6 +2,16 @@ local startup_lsp = function()
   -- LSP settings.
   -- dependencies = {'hrsh7th/cmp-nvim-lsp', 'nvim-telescope/telescope.nvim', 'williamboman/mason-lspconfig.nvim', "folke/neodev.nvim"},
   --  This function gets run when an LSP connects to a particular buffer.
+
+  -- Diagnostic keymaps
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {desc = "Diagnostic open float"})
+  vim.diagnostic.config({
+    severity_sort = true,
+    underline = false,
+  })
+
   local on_attach = function(_, bufnr)
     -- NOTE: Remember that lua is a real programming language, and as such it is possible
     -- to define small helper and utility functions so you don't have to repeat yourself

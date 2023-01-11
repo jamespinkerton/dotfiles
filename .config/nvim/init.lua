@@ -31,6 +31,7 @@ vim.o.breakindent = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.updatetime = 250
+-- vim.o.completeopt = {'menu', 'menuone', 'noselect'}
 vim.o.completeopt = 'menuone,noselect'
 vim.o.confirm = true
 vim.o.inccommand = 'split'
@@ -44,11 +45,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {desc = "Diagnostic open float"})
 
 -- Personal settings
 vim.keymap.set('i', '<C-z>', '<esc><C-z>')

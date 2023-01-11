@@ -39,6 +39,7 @@ return {
       vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sc', require('telescope.builtin').commands, { desc = '[S]earch [C]ommands' })
+      vim.keymap.set('n', '<leader>st', vim.cmd.Telescope, { desc = '[S]earch [T]elescope' })
 
       vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>p', require('telescope.builtin').find_files, { desc = 'Search Files' })
@@ -52,6 +53,7 @@ return {
       -- vim.keymap.set('n', '<leader>sq', git_files, { desc = '[S]earch [Q]onfig' })
     end,
   },
+
   -- Fuzzy Finder Algorithm which dependencies local dependencies to be built. Only load if `make` is available
   -- {
   --   'nvim-telescope/telescope-fzf-native.nvim',

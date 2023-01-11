@@ -18,7 +18,7 @@ return {
     'kdheepak/lazygit.nvim',
     config = function()
       require("lazy").setup("plugins")
-      vim.keymap.set('n', '<leader>G', ':LazyGit<enter>')
+      vim.keymap.set('n', '<leader>gg', ':LazyGit<enter>')
     end
   },
   {
@@ -71,23 +71,23 @@ return {
       -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end,
   },
-  {
-    {
-      "folke/which-key.nvim",
-      config = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
-        require("which-key").setup({
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
-        })
-        local wk = require("which-key")
-        wk.register({
-          s = "[S]earch Telescope",
-          w = "[W]orkspace",
-        }, { prefix = "<leader>" })
-      end,
-    },
-  },
+  -- {
+  --   {
+  --     "folke/which-key.nvim",
+  --     config = function()
+  --       vim.o.timeout = true
+  --       vim.o.timeoutlen = 300
+  --       require("which-key").setup({
+  --         -- your configuration comes here
+  --         -- or leave it empty to use the default settings
+  --         -- refer to the configuration section below
+  --       })
+  --       local wk = require("which-key")
+  --       wk.register({
+  --         s = "[S]earch Telescope",
+  --         w = "[W]orkspace",
+  --       }, { prefix = "<leader>" })
+  --     end,
+  --   },
+  -- },
 }
