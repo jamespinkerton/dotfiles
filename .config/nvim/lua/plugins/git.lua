@@ -4,14 +4,6 @@ return {
     config = function()
       -- See `:help gitsigns.txt`
       require('gitsigns').setup {
-        --   signs = {
-        --     add = { hl = '', text = '+' },
-        --     change = { hl = '', text = '~' },
-        --     delete = { hl = '', text = "_" },
-        --     topdelete = { hl = '', text = '‾' },
-        --     changedelete = { hl = '', text = '~' },
-        --   },
-        -- }
         signs = {
           add          = { hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
           change       = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
@@ -42,31 +34,26 @@ return {
             return '<Ignore>'
           end, {expr=true})
 
-          -- Actions
-          map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-          map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-          map('n', '<leader>hS', gs.stage_buffer)
-          map('n', '<leader>hu', gs.undo_stage_hunk)
-          map('n', '<leader>hR', gs.reset_buffer)
-          map('n', '<leader>hp', gs.preview_hunk_inline)
-          map('n', '<leader>hb', function() gs.blame_line{full=true} end)
-          map('n', '<leader>tb', gs.toggle_current_line_blame)
-          map('n', '<leader>hd', gs.diffthis)
-          map('n', '<leader>hD', function() gs.diffthis('~') end)
-          map('n', '<leader>td', gs.toggle_deleted)
-
-          -- Text object
-          map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+          map({'n', 'v'}, '<leader>hs', gs.stage_hunk, {desc = "Stage Hunk"})
+          map({'n', 'v'}, '<leader>hr', gs.reset_hunk, {desc = "Reset Hunk"})
+          map('n', '<leader>hS', gs.stage_buffer, {desc = "Stage Buffer"})
+          map('n', '<leader>hu', gs.undo_stage_hunk, {desc = "Undo Stage Hunk"})
+          map('n', '<leader>hR', gs.reset_buffer, {desc = "Reset Buffer"})
+          map('n', '<leader>hp', gs.preview_hunk_inline, {desc = "Preview Hunk Inline"})
+          map('n', '<leader>hb', function() gs.blame_line{full=true} end, {desc = "Blame Line"})
+          map('n', '<leader>hd', gs.diffthis, {desc = "Diff"})
+          map('n', '<leader>hD', function() gs.diffthis('~') end, {desc = "Diff HEAD"})
+          map('n', '<leader>ht', gs.toggle_deleted, {desc = "Toggle Show Deleted"})
+          map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>', {desc = "Select Hunk"})
         end
       }
-      -- vim.keymap.set('n', '<leader>gb', require('gitsigns').blame_line)
     end,
   },
   {
     'kdheepak/lazygit.nvim',
     config = function()
       require("lazy").setup("plugins")
-      vim.keymap.set('n', '<leader>gg', ':LazyGit<enter>')
+      vim.keymap.set('n', '<leader>hg', ':LazyGit<enter>')
     end
   },
 }
