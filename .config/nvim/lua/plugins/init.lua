@@ -1,27 +1,5 @@
 return {
   {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      -- See `:help gitsigns.txt`
-      require('gitsigns').setup {
-        signs = {
-          add = { hl = '', text = '+' },
-          change = { hl = '', text = '~' },
-          delete = { hl = '', text = '_' },
-          topdelete = { hl = '', text = '‾' },
-          changedelete = { hl = '', text = '~' },
-        },
-      }
-    end,
-  },
-  {
-    'kdheepak/lazygit.nvim',
-    config = function()
-      require("lazy").setup("plugins")
-      vim.keymap.set('n', '<leader>gg', ':LazyGit<enter>')
-    end
-  },
-  {
     'nvim-tree/nvim-tree.lua',
     config = function()
       -- Enable nvim-tree
