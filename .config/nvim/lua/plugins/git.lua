@@ -52,7 +52,6 @@ return {
   {
     'kdheepak/lazygit.nvim',
     config = function()
-      require("lazy").setup("plugins")
       vim.keymap.set('n', '<leader>hg', ':LazyGit<enter>')
     end
   },
