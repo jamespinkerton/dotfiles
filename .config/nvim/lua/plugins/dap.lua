@@ -2,9 +2,8 @@ return {
   {
     'mfussenegger/nvim-dap',
     config = function()
-      vim.keymap.set("n", "<leader>b", require("dap").toggle_breakpoint)
-      vim.keymap.set("n", "<leader>dct", require("dap").continue)
-      vim.keymap.set("n", "<F1>", require("dap").continue)
+      vim.keymap.set("n", "<leader>b", require("dap").toggle_breakpoint, {desc = "[B]reakpoint Toggle"})
+      vim.keymap.set("n", "<leader>dct", require("dap").continue, {desc = "[D]ap [C]o[n]tinue"})
     end,
   },
   {

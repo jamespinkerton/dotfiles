@@ -18,7 +18,7 @@ return {
     'kdheepak/lazygit.nvim',
     config = function()
       require("lazy").setup("plugins")
-      vim.keymap.set('n', '<leader>gg', ':LazyGit<enter>')
+      vim.keymap.set('n', '<leader>G', ':LazyGit<enter>')
     end
   },
   {
@@ -82,6 +82,11 @@ return {
           -- or leave it empty to use the default settings
           -- refer to the configuration section below
         })
+        local wk = require("which-key")
+        wk.register({
+          s = "[S]earch Telescope",
+          w = "[W]orkspace",
+        }, { prefix = "<leader>" })
       end,
     },
   },

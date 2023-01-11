@@ -41,7 +41,7 @@ return {
       vim.keymap.set('n', '<leader>sc', require('telescope.builtin').commands, { desc = '[S]earch [C]ommands' })
 
       vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>p', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>p', require('telescope.builtin').find_files, { desc = 'Search Files' })
       -- local git_files = function()
       --   require("telescope.builtin").find_files{
       --     -- cwd = vim.fn.expand("$HOME"),
