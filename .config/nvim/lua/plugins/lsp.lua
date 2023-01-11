@@ -1,5 +1,6 @@
-local startup_lsp = function ()
+local startup_lsp = function()
   -- LSP settings.
+  -- dependencies = {'hrsh7th/cmp-nvim-lsp', 'nvim-telescope/telescope.nvim', 'williamboman/mason-lspconfig.nvim', "folke/neodev.nvim"},
   --  This function gets run when an LSP connects to a particular buffer.
   local on_attach = function(_, bufnr)
     -- NOTE: Remember that lua is a real programming language, and as such it is possible
@@ -109,7 +110,7 @@ return {
       -- Additional lua configuration, makes nvim stuff amazing
       {
         'folke/neodev.nvim',
-        config = function ()
+        config = function()
           require('neodev').setup()
         end,
       },

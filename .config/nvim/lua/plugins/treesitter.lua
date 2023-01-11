@@ -5,7 +5,7 @@ return {
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
     dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
-    config = function ()
+    config = function()
       -- [[ Configure Treesitter ]]
       -- See `:help nvim-treesitter`
       require('nvim-treesitter.configs').setup {

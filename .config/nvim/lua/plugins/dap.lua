@@ -1,7 +1,7 @@
 return {
   {
     'mfussenegger/nvim-dap',
-    config = function ()
+    config = function()
       vim.keymap.set("n", "<leader>b", require("dap").toggle_breakpoint)
       vim.keymap.set("n", "<leader>dct", require("dap").continue)
       vim.keymap.set("n", "<F1>", require("dap").continue)
@@ -9,14 +9,14 @@ return {
   },
   {
     'mfussenegger/nvim-dap-python',
-    config = function ()
+    config = function()
       require("dap-python").setup("python", {})
     end
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = {"mfussenegger/nvim-dap"},
-    config = function ()
+    dependencies = { "mfussenegger/nvim-dap" },
+    config = function()
       require("dapui").setup()
     end,
   },
