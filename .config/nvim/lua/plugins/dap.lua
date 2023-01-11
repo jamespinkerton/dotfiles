@@ -7,6 +7,14 @@ return {
     end,
   },
   {
+    "jayp0521/mason-nvim-dap.nvim",
+    config = function()
+      require("mason-nvim-dap").setup({
+        ensure_installed = { "python" }
+      })
+    end,
+  },
+  {
     'mfussenegger/nvim-dap-python',
     config = function()
       require("dap-python").setup("python", {})
@@ -17,12 +25,13 @@ return {
     dependencies = { "mfussenegger/nvim-dap" },
     config = function()
       require("dapui").setup()
+      vim.keymap.set("n", "<leader>dui", require("dapui").toggle)
     end,
   },
   {
     'theHamsta/nvim-dap-virtual-text',
-    -- config = function ()
-    --   require("nvim-dap-virtual-text").setup()
-    -- end,
+    config = function ()
+      require("nvim-dap-virtual-text").setup({})
+    end,
   },
 }
