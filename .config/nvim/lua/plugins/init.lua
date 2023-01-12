@@ -1,6 +1,25 @@
 return {
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end,
+  },
   {'nvim-tree/nvim-web-devicons'},
-  -- {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  -- {
+  --   'akinsho/bufferline.nvim',
+  --   config = function ()
+  --     vim.opt.termguicolors = true
+  --     require("bufferline").setup({
+  --       options = {
+  --       }
+  --     })
+  --   end,
+  --   dependencies = 'nvim-tree/nvim-web-devicons'
+  -- },
   {
     'rcarriga/nvim-notify',
     config = function()
