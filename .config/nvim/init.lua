@@ -38,3 +38,4 @@ vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.confirm = true
 vim.o.inccommand = 'split'
 vim.keymap.set('i', '<C-z>', '<esc><C-z>')
+vim.keymap.set('v', '<leader>c', ':OSCYank<CR>')

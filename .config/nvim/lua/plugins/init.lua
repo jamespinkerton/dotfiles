@@ -1,5 +1,11 @@
 return {
   {
+    'ojroques/vim-oscyank',
+    config = function ()
+      vim.g.oscyank_term = 'default'
+    end,
+  },
+  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
