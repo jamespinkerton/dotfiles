@@ -1,4 +1,44 @@
 return {
+  {'nvim-tree/nvim-web-devicons'},
+  -- {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.o.termguicolors = true
+      require("notify").setup({
+        background_colour = "#000000",
+      })
+      require("telescope").load_extension("notify")
+      vim.keymap.set('n', '<leader>sn', require('telescope').extensions.notify.notify, { desc = '[S]earch [N]otifications' })
+    end,
+  },
+  {
+    'gelguy/wilder.nvim',
+    config = function()
+      local wilder = require('wilder')
+      wilder.setup({modes = {':'}})
+    end,
+  },
+  {
+    'kevinhwang91/nvim-hlslens',
+    config = function ()
+      require('hlslens').setup({
+        nearest_only = true,
+      })
+    end
+  },
+  {
+    "folke/trouble.nvim",
+    config = function()
+      require("trouble").setup {
+        position = "right",
+        mode = "workspace_diagnostics",
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  },
   {
     "akinsho/toggleterm.nvim",
     version = '*',
