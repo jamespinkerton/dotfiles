@@ -1,3 +1,5 @@
+-- [[ Plugins ]]
+--
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -18,17 +20,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 require("lazy").setup("plugins")
 vim.keymap.set("n", "<leader>l", vim.cmd.Lazy, {desc = "[L]azy plugin manager"})
 
--- [[ Color options ]]
+-- [[ Settings ]]
 --
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = nil })
-vim.api.nvim_set_hl(0, 'SignColumn', { bg = nil })
-
--- Word wrap
-vim.o.breakindent = true
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Personal settings
 vim.o.mouse = ''
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -37,5 +30,10 @@ vim.o.ttimeoutlen = 200
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.confirm = true
 vim.o.inccommand = 'split'
+vim.o.breakindent = true
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set('i', '<C-z>', '<esc><C-z>')
-vim.keymap.set('v', '<leader>c', ':OSCYank<CR>')
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = nil })
+vim.api.nvim_set_hl(0, 'SignColumn', { bg = nil })
+

@@ -1,8 +1,12 @@
 return {
+  'dstein64/vim-startuptime',
+  'metakirby5/codi.vim',
+  'liuchengxu/vista.vim',
   {
     'ojroques/vim-oscyank',
     config = function ()
       vim.g.oscyank_term = 'default'
+      vim.keymap.set('v', '<leader>c', ':OSCYank<CR>')
     end,
   },
   {
