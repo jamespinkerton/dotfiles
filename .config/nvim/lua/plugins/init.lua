@@ -29,9 +29,10 @@ return {
   {
     'rcarriga/nvim-notify',
     config = function()
-      vim.o.termguicolors = true
+      -- vim.o.termguicolors = true
       require("notify").setup({
         background_colour = "#000000",
+        stages = "static",
       })
       require("telescope").load_extension("notify")
       vim.keymap.set('n', '<leader>sn', require('telescope').extensions.notify.notify, { desc = '[S]earch [N]otifications' })
@@ -41,7 +42,7 @@ return {
     'gelguy/wilder.nvim',
     config = function()
       local wilder = require('wilder')
-      wilder.setup({modes = {':'}})
+      wilder.setup({modes = {':', '/', '?'}})
     end,
   },
   {
