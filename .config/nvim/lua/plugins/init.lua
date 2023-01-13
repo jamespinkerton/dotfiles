@@ -48,6 +48,7 @@ return {
       local wilder = require('wilder')
       wilder.setup({modes = {':', '/', '?'}})
     end,
+    build = ':UpdateRemotePlugins',
   },
   {
     'kevinhwang91/nvim-hlslens',
@@ -67,6 +68,7 @@ return {
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       }
+      vim.keymap.set('n', '<leader>t', require('trouble').toggle, { desc = '[T]rouble Toggle' })
     end
   },
   {
@@ -143,9 +145,9 @@ return {
         vim.o.timeout = true
         vim.o.timeoutlen = 300
         require("which-key").setup({
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
+          window = {
+            position = "top",
+          }
         })
         local wk = require("which-key")
         wk.register({
