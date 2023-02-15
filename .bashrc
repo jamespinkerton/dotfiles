@@ -1,3 +1,4 @@
+export PATH=/opt/homebrew/bin/:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.neovim/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
@@ -9,6 +10,7 @@ export HISTIGNORE='&:ls:[bf]g:exit'
 export TZ='America/New_York'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
@@ -38,11 +40,8 @@ function vcsv {
     /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
 }
 
-if [[ "$(uname -s)" != "Darwin" ]]; then
-    SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
-    # PS1="$SMILEY\[\e[36m\] @\h \w$(__git_ps1 " (%s)") $ \[\e[37m\]"
-    PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
-    PROMPT_COMMAND=
-fi
+SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
+PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
+PROMPT_COMMAND=
 
-[ -f ~/.bashrc.local ] && source ~/.bashrc.local
+[ -f ~/.local/bashrc ] && source ~/.local/bashrc
