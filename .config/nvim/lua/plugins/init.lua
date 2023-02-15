@@ -42,22 +42,22 @@ return {
       vim.keymap.set('n', '<leader>sn', require('telescope').extensions.notify.notify, { desc = '[S]earch [N]otifications' })
     end,
   },
-  {
-    'gelguy/wilder.nvim',
-    config = function()
-      local wilder = require('wilder')
-      wilder.setup({modes = {':', '/', '?'}})
-    end,
-    build = ':UpdateRemotePlugins',
-  },
-  {
-    'kevinhwang91/nvim-hlslens',
-    config = function ()
-      require('hlslens').setup({
-        nearest_only = true,
-      })
-    end
-  },
+  -- {
+  --   'gelguy/wilder.nvim',
+  --   config = function()
+  --     local wilder = require('wilder')
+  --     wilder.setup({modes = {':', '/', '?'}})
+  --   end,
+  --   build = ':UpdateRemotePlugins',
+  -- },
+  -- {
+  --   'kevinhwang91/nvim-hlslens',
+  --   config = function ()
+  --     require('hlslens').setup({
+  --       nearest_only = true,
+  --     })
+  --   end
+  -- },
   {
     "folke/trouble.nvim",
     config = function()
@@ -124,7 +124,7 @@ return {
       require('Comment').setup()
     end,
   },
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   {
     'alexghergh/nvim-tmux-navigation',
     config = function()

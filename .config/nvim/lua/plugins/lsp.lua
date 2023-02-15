@@ -2,6 +2,11 @@ local startup_lsp = function()
   -- LSP settings.
   -- dependencies = {'hrsh7th/cmp-nvim-lsp', 'nvim-telescope/telescope.nvim', 'williamboman/mason-lspconfig.nvim', "folke/neodev.nvim"},
   --  This function gets run when an LSP connects to a particular buffer.
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = false
+    }
+  )
 
   -- Diagnostic keymaps
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)

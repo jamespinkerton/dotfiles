@@ -36,3 +36,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('i', '<C-z>', '<esc><C-z>')
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = nil })
 vim.api.nvim_set_hl(0, 'SignColumn', { bg = nil })
+
+vim.o.expandtab = true
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
