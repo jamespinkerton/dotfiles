@@ -1,6 +1,5 @@
 export PATH=/opt/homebrew/bin/:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/.neovim/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export EDITOR=nvim
 export HISTFILESIZE=10000
