@@ -1,8 +1,10 @@
 [user]
     name = James Pinkerton
-    email = jpinkerton@latourtrading.com
+    email = jamescpinkerton@gmail.com
 [credential]
     helper = store
+[diff]
+	tool = nvimdiff
 [format]
     pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
 [alias]
@@ -17,19 +19,3 @@
     id = rev-parse --short HEAD
     count = rev-list --count HEAD
     url = remote get-url origin
-[diff]
-	tool = vimdiff
-[push]
-    default = simple
-[http]
-    cookiefile = ~/.gitcookies
-
-# [core]
-#     pager = delta
-# [delta]
-#     plus-style = "syntax #012800"
-#     minus-style = "syntax #340001"
-#     syntax-theme = Monokai Extended
-#     navigate = true
-# [interactive]
-#     diffFilter = delta --color-only
