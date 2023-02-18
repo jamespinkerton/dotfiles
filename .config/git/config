@@ -3,10 +3,11 @@
     email = jpinkerton@latourtrading.com
 [credential]
     helper = store
+[format]
+    pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
 [alias]
     alias = !git config -l | grep alias | cut -c 7-
-    pretty = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    graph = !git pretty --graph
+    graph = !git log --graph
     out = !git graph @{u}..
     in = !git fetch && git graph ..@{u}
     st = status
