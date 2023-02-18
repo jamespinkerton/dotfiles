@@ -58,19 +58,19 @@ return {
   --     })
   --   end
   -- },
-  {
-    "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup {
-        position = "right",
-        mode = "workspace_diagnostics",
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-      vim.keymap.set('n', '<leader>t', require('trouble').toggle, { desc = '[T]rouble Toggle' })
-    end
-  },
+  -- {
+  --   "folke/trouble.nvim",
+  --   config = function()
+  --     require("trouble").setup {
+  --       position = "right",
+  --       mode = "workspace_diagnostics",
+  --       -- your configuration comes here
+  --       -- or leave it empty to use the default settings
+  --       -- refer to the configuration section below
+  --     }
+  --     vim.keymap.set('n', '<leader>t', require('trouble').toggle, { desc = '[T]rouble Toggle' })
+  --   end
+  -- },
   {
     "akinsho/toggleterm.nvim",
     version = '*',

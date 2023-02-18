@@ -27,13 +27,9 @@ shopt -s dirspell
 set colored-stats on
 
 alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vi='nvim'
 alias vim='nvim'
-alias hl='hg log --style $HOME/.hgrc.d/fancy.style'
-alias hhl='hg log -G --style $HOME/.hgrc.d/fancy.style'
-alias m='python/make.py'
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 function vcsv {
     /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
