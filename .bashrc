@@ -39,4 +39,23 @@ SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:
 PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
 PROMPT_COMMAND=
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/mnt/disks/condaman/mamba/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/mnt/disks/condaman/mamba/etc/profile.d/conda.sh" ]; then
+        . "/mnt/disks/condaman/mamba/etc/profile.d/conda.sh"
+    else
+        export PATH="/mnt/disks/condaman/mamba/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/mnt/disks/condaman/mamba/etc/profile.d/mamba.sh" ]; then
+    . "/mnt/disks/condaman/mamba/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
 [ -f ~/.local/bashrc ] && source ~/.local/bashrc
