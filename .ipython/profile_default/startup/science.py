@@ -5,5 +5,5 @@ import polars as pl
 import matplotlib
 import matplotlib.pyplot as plt
 
-plt.figure(figsize=(20, 15))
 matplotlib.use('module://matplotlib-sixel')
+plt.figure(figsize=(20, 15))

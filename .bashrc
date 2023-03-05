@@ -29,7 +29,6 @@ set colored-stats on
 
 alias ls='ls --color=auto'
 alias vi='nvim'
-alias vim='nvim'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 function vcsv {
