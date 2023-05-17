@@ -95,9 +95,10 @@ return {
       require("nvim-tree").setup()
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
-      vim.keymap.set('n', '<leader>n', require('nvim-tree').toggle, { desc = 'Nvim tree' })
+      vim.keymap.set('n', '<leader>n', vim.cmd.NvimTreeToggle, { desc = "[N]vim Tree" })
     end,
   },
+
   {
     'mbbill/undotree',
     config = function()
