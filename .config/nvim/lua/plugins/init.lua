@@ -2,6 +2,7 @@ return {
   'dstein64/vim-startuptime',
   'metakirby5/codi.vim',
   'liuchengxu/vista.vim',
+
   {
     'ojroques/vim-oscyank',
     config = function ()
@@ -9,6 +10,7 @@ return {
       vim.keymap.set('v', '<leader>c', ':OSCYank<CR>')
     end,
   },
+
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -18,7 +20,9 @@ return {
         })
     end,
   },
+
   {'nvim-tree/nvim-web-devicons'},
+
   -- {
   --   'akinsho/bufferline.nvim',
   --   config = function ()
@@ -30,6 +34,7 @@ return {
   --   end,
   --   dependencies = 'nvim-tree/nvim-web-devicons'
   -- },
+  --
   {
     'rcarriga/nvim-notify',
     config = function()
@@ -42,6 +47,7 @@ return {
       vim.keymap.set('n', '<leader>sn', require('telescope').extensions.notify.notify, { desc = '[S]earch [N]otifications' })
     end,
   },
+
   -- {
   --   'gelguy/wilder.nvim',
   --   config = function()
@@ -50,6 +56,7 @@ return {
   --   end,
   --   build = ':UpdateRemotePlugins',
   -- },
+
   -- {
   --   'kevinhwang91/nvim-hlslens',
   --   config = function ()
@@ -58,6 +65,7 @@ return {
   --     })
   --   end
   -- },
+
   -- {
   --   "folke/trouble.nvim",
   --   config = function()
@@ -71,6 +79,7 @@ return {
   --     vim.keymap.set('n', '<leader>t', require('trouble').toggle, { desc = '[T]rouble Toggle' })
   --   end
   -- },
+
   {
     "akinsho/toggleterm.nvim",
     version = '*',
@@ -81,6 +90,7 @@ return {
       })
     end,
   },
+
   {
     "ggandor/leap.nvim",
     config = function()
@@ -105,6 +115,7 @@ return {
       vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "[U]ndo Tree" })
     end
   },
+
   { -- Fancier statusline
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -119,13 +130,16 @@ return {
       }
     end,
   },
-  { -- "gc" to comment visual regions/lines
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end,
-  },
-  -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+
+  -- { -- "gc" to comment visual regions/lines
+  --   'numToStr/Comment.nvim',
+  --   config = function()
+  --     require('Comment').setup()
+  --   end,
+  -- },
+
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+
   {
     'alexghergh/nvim-tmux-navigation',
     config = function()
@@ -139,24 +153,19 @@ return {
       -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end,
   },
+
+  -- {
+  --   'folke/which-key.nvim',
+  --   opts = {
+  --     win = {
+  --       padding = { 1, 2 },
+  --     }
+  --   }
+  -- },
+
   {
-    {
-      "folke/which-key.nvim",
-      config = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
-        require("which-key").setup({
-          window = {
-            position = "top",
-          }
-        })
-        local wk = require("which-key")
-        wk.register({
-          s = "[S]earch Telescope",
-          w = "[W]orkspace",
-          h = "Git commands",
-        }, { prefix = "<leader>" })
-      end,
-    },
-  },
+    'stevearc/oil.nvim',
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+  }
 }

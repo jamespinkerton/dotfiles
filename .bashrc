@@ -30,11 +30,34 @@ set colored-stats on
 alias ls='ls --color=auto'
 alias vi='nvim'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias gs='gcloud storage'
 
 function vcsv {
-    /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+    /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K -N
 }
 
 SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
 PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
 PROMPT_COMMAND=
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/mnt/disks/condaman/mamba/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/mnt/disks/condaman/mamba/etc/profile.d/conda.sh" ]; then
+        . "/mnt/disks/condaman/mamba/etc/profile.d/conda.sh"
+    else
+        export PATH="/mnt/disks/condaman/mamba/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/mnt/disks/condaman/mamba/etc/profile.d/mamba.sh" ]; then
+    . "/mnt/disks/condaman/mamba/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+
+# ssh james@3.112.250.171 -i ~/.ssh/for_jrr_id_rsa

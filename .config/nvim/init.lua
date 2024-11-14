@@ -13,6 +13,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.cmd('colorscheme vim')
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -40,3 +42,5 @@ vim.api.nvim_set_hl(0, 'SignColumn', { bg = nil })
 vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, {desc = "[e]rror toggle"})

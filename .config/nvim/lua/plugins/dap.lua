@@ -20,14 +20,14 @@ return {
       require("dap-python").setup("python", {})
     end
   },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap" },
-    config = function()
-      require("dapui").setup()
-      vim.keymap.set("n", "<leader>dui", require("dapui").toggle)
-    end,
-  },
+  -- {
+  --   "rcarriga/nvim-dap-ui",
+  --   dependencies = { "mfussenegger/nvim-dap" },
+  --   config = function()
+  --     require("dapui").setup()
+  --     vim.keymap.set("n", "<leader>dui", require("dapui").toggle)
+  --   end,
+  -- },
   {
     'theHamsta/nvim-dap-virtual-text',
     config = function ()

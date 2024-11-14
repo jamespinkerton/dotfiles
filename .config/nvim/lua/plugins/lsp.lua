@@ -66,7 +66,9 @@ local startup_lsp = function()
   --  Add any additional override configuration in the following tables. They will be passed to
   --  the `settings` field of the server config. You must look up that documentation yourself.
   local servers = {
-    -- clangd = {},
+    clangd = { { semanticTokens = {enable = false} } },
+    -- ruff_lsp = {},
+    pylsp = {},
     -- gopls = {},
     -- pyright = {},
     -- rust_analyzer = {},
@@ -82,6 +84,7 @@ local startup_lsp = function()
   -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+  capabilities.semanticTokensProvider = nil
 
   -- Ensure the servers above are installed
   local mason_lspconfig = require('mason-lspconfig')
@@ -115,13 +118,13 @@ return {
       {
         'williamboman/mason-lspconfig.nvim',
       },
-      -- Useful status updates for LSP
-      {
-        'j-hui/fidget.nvim',
-        config = function()
-          require('fidget').setup()
-        end,
-      },
+      -- {
+      --   'j-hui/fidget.nvim',
+      --   version = 'legacy',
+      --   config = function()
+      --     require('fidget').setup()
+      --   end,
+      -- },
       -- Additional lua configuration, makes nvim stuff amazing
       {
         'folke/neodev.nvim',
