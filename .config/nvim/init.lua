@@ -32,7 +32,7 @@ require("lazy").setup({
   { import = "plugins.gitsigns" },
   { import = "plugins.lsp" },
   { import = "plugins.telescope" },
-  { import = "plugins.treesitter" },
+  { import = "plugins.nvim_treesitter" },
 })
 
 vim.keymap.set("n", "<leader>l", vim.cmd.Lazy, {desc = "[L]azy plugin manager"})
