@@ -28,6 +28,7 @@ return {
       map("<leader><space>", builtin.buffers, "Find existing buffers")
       map("<leader>/", builtin.current_buffer_fuzzy_find, "Fuzzy search in current buffer")
       map("<leader>sr", builtin.git_files, "[S]earch [R]epo")
+      map("<leader>sm", builtin.keymaps, "[S]earch [M]appings")
       map("<leader>sh", builtin.help_tags, "[S]earch [H]elp")
       map("<leader>sw", builtin.grep_string, "[S]earch current [W]ord")
       map("<leader>sg", builtin.live_grep, "[S]earch by [G]rep")

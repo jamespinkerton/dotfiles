@@ -1,9 +1,7 @@
 return {
   "dstein64/vim-startuptime",
-  "tpope/vim-sleuth",
-  "nvim-tree/nvim-web-devicons",
+  -- "tpope/vim-sleuth",
   "ojroques/vim-oscyank",
-  "kylechui/nvim-surround",
   "sindrets/diffview.nvim",
 
   {
@@ -19,6 +17,8 @@ return {
       vim.notify = require("notify")
     end,
   },
+
+  { "nvim-tree/nvim-web-devicons", opts = {} },
 
   {
     "nvim-tree/nvim-tree.lua",
@@ -38,18 +38,10 @@ return {
     end
   },
 
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-
   { -- Fancier statusline
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      -- Set lualine as statusline
-      -- See `:help lualine.txt`
       require("lualine").setup {
         options = {
           icons_enabled = false,
@@ -58,6 +50,15 @@ return {
         },
       }
     end,
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "^3.0.0",
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({})
+    end
   },
 
   {
