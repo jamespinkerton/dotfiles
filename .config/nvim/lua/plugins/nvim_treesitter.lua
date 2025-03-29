@@ -6,14 +6,16 @@ return {
     end,
     dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
     config = function()
-      -- [[ Configure Treesitter ]]
-      -- See `:help nvim-treesitter`
       require("nvim-treesitter.configs").setup {
-        -- Add languages to be installed here that you want installed for treesitter
-        ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "typescript", "help", "vim" },
+        modules = {},
+        sync_install = false,
+        auto_install = true,
+        ensure_installed = { "python", "c", "cpp", "lua", "rust", "help", "vim" },
         ignore_install = { "help" },
-        highlight = { enable = true, disable = { "python" } },
+        -- indent = { enable = true },
         indent = { enable = true, disable = { "python" } },
+        -- highlight = { enable = true },
+        highlight = { enable = true, disable = { "python" } },
         incremental_selection = {
           enable = true,
           keymaps = {
