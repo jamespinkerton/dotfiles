@@ -1,8 +1,11 @@
 return {
-  "dstein64/vim-startuptime",
-  -- "tpope/vim-sleuth",
-  "ojroques/vim-oscyank",
-  "sindrets/diffview.nvim",
+  {
+    "dstein64/vim-startuptime",
+  },
+
+  {
+    "tpope/vim-sleuth",
+  },
 
   {
     "rcarriga/nvim-notify",
