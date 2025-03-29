@@ -31,6 +31,9 @@ alias ls='ls --color=auto'
 alias vi='nvim'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias gs='gcloud storage'
+alias py='PYTHONPATH=. python'
+alias st='PYTHONPATH=. streamlit'
+alias gls='gcloud compute instances list'
 
 function vcsv {
     /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K -N

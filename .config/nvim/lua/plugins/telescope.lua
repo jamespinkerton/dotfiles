@@ -1,79 +1,47 @@
 return {
-  -- Fuzzy Finder (files, lsp, etc)
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      -- See `:help telescope` and `:help telescope.setup()`
-      local actions = require "telescope.actions"
-      require('telescope').setup {
-
+      local actions = require("telescope.actions")
+      require("telescope").setup {
         defaults = {
           mappings = {
             i = {
               ["<C-j>"] = actions.move_selection_next,
               ["<C-k>"] = actions.move_selection_previous,
-              ["<C-n>"] = actions.cycle_history_next,
-              ["<C-p>"] = actions.cycle_history_prev,
+              ["<C-n>"] = actions.nop,
+              ["<C-p>"] = actions.nop,
               ["<esc>"] = actions.close,
             },
           },
         },
       }
-      -- See `:help telescope.builtin`
-      vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = 'Find recently opened files' })
-      vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
-      vim.keymap.set('n', '<leader>/', function()
-        -- You can pass additional configuration to telescope to change theme, layout, etc.
-        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        })
-      end, { desc = 'Fuzzy search in current buffer]' })
 
-      vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>sr', require('telescope.builtin').git_files, { desc = '[S]earch [R]epo' })
-      vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>sc', require('telescope.builtin').commands, { desc = '[S]earch [C]ommands' })
-      vim.keymap.set('n', '<leader>st', vim.cmd.Telescope, { desc = '[S]earch [T]elescope' })
+      local function map(keys, func, desc)
+        vim.keymap.set("n", keys, func, {desc = "Telescope: " .. desc})
+      end
 
-      vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>p', require('telescope.builtin').find_files, { desc = 'Search Files' })
-      -- local git_files = function()
-      --   require("telescope.builtin").find_files{
-      --     -- cwd = vim.fn.expand("$HOME"),
-      --     -- find_command = {"sed", vim.fn.expand("s/^/$HOME./"), "git", vim.fn.expand("--git-dir=$HOME/.cfg/"), "ls-files"},
-      --     find_command = { "rg", "--files", vim.fn.expand("$HOME/.config")},
-      --   }
-      -- end
-      -- vim.keymap.set('n', '<leader>sq', git_files, { desc = '[S]earch [Q]onfig' })
+      local builtin = require("telescope.builtin")
+      map("<leader>?", builtin.oldfiles, "Find recently opened files")
+      map("<leader><space>", builtin.buffers, "Find existing buffers")
+      map("<leader>/", builtin.current_buffer_fuzzy_find, "Fuzzy search in current buffer")
+      map("<leader>sr", builtin.git_files, "[S]earch [R]epo")
+      map("<leader>sh", builtin.help_tags, "[S]earch [H]elp")
+      map("<leader>sw", builtin.grep_string, "[S]earch current [W]ord")
+      map("<leader>sg", builtin.live_grep, "[S]earch by [G]rep")
+      map("<leader>sd", builtin.diagnostics, "[S]earch [D]iagnostics")
+      map("<leader>sc", builtin.commands, "[S]earch [C]ommands")
+      map("<leader>st", vim.cmd.Telescope, "[S]earch [T]elescope")
+      map("<leader>sf", builtin.find_files, "[S]earch [F]iles")
+      map("<C-p>", builtin.find_files, "[S]earch [F]iles")
+      map("<leader>p", builtin.find_files, "[S]earch [F]iles")
+      map("<leader>gs", builtin.git_status, "[G]it [S]tatus")
+      map("<leader>gb", builtin.git_branches, "[G]it [B]ranches")
+      map("<leader>gc", builtin.git_commits, "[G]it [C]ommits")
+      map("<leader>gC", builtin.git_bcommits, "[G]it Buffer [C]ommits")
+      map("<leader>gst", builtin.git_stash, "[G]it [St]ash")
     end,
   },
-
-  -- Fuzzy Finder Algorithm which dependencies local dependencies to be built. Only load if `make` is available
-  -- {
-  --   'nvim-telescope/telescope-fzf-native.nvim',
-  --   build = 'make',
-  --   -- cond = vim.fn.executable 'make' == 1,
-  --   config = function ()
-  --     -- Enable telescope fzf native, if installed
-  --     require('telescope').load_extension('fzf')
-  --   end,
-  --   dependencies = {
-  --     'junegunn/fzf',
-  --     build = './install --bin',
-  --   },
-  -- },
-  -- 'ibhagwan/fzf-lua',
-  -- {
-  --   'junegunn/fzf',
-  --   build = './install --bin',
-  --   -- config = function ()
-  --   --   vim.keymap.set('n', '<C-p>', ':FZF<enter>')
-  --   -- end,
-  -- },
 }

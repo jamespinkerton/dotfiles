@@ -1,6 +1,6 @@
 return {
   {
-    'mfussenegger/nvim-dap',
+    "mfussenegger/nvim-dap",
     config = function()
       vim.keymap.set("n", "<leader>b", require("dap").toggle_breakpoint, {desc = "[B]reakpoint Toggle"})
       vim.keymap.set("n", "<leader>dct", require("dap").continue, {desc = "[D]ap [C]o[n]tinue"})
@@ -15,7 +15,7 @@ return {
     end,
   },
   {
-    'mfussenegger/nvim-dap-python',
+    "mfussenegger/nvim-dap-python",
     config = function()
       require("dap-python").setup("python", {})
     end
@@ -29,7 +29,7 @@ return {
   --   end,
   -- },
   {
-    'theHamsta/nvim-dap-virtual-text',
+    "theHamsta/nvim-dap-virtual-text",
     config = function ()
       require("nvim-dap-virtual-text").setup({})
     end,
