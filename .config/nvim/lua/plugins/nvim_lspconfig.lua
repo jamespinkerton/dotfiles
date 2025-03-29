@@ -35,8 +35,6 @@ local startup_lsp = function()
     nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
     nmap("K", vim.lsp.buf.hover, "Hover Documentation")
     -- nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
-
-    -- Lesser used LSP functionality
     nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
     nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
     nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
@@ -46,16 +44,15 @@ local startup_lsp = function()
   end
 
   local servers = {
+    -- pyright = {},
+    -- basedpyright = {},
     -- rust_analyzer = {},
     clangd = { { semanticTokens = { enable = false } } },
     pylsp = {
       plugins = {
          pylsp_mypy = { enabled = true },
-         pylsp_rope = { enabled = true },
       }
     },
-    -- pyright = {},
-    -- basedpyright = {},
     lua_ls = {
       Lua = {
         workspace = { checkThirdParty = false },
@@ -72,12 +69,9 @@ local startup_lsp = function()
     root_dir = require("lspconfig").util.root_pattern("compile_commands.json", ".git")
   }
 
-  -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
   capabilities.semanticTokensProvider = nil
-
-  -- Ensure the servers above are installed
   local mason_lspconfig = require("mason-lspconfig")
 
   mason_lspconfig.setup {

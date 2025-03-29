@@ -14,8 +14,8 @@ return {
         ignore_install = { "help" },
         indent = { enable = true },
         -- indent = { enable = true, disable = { "python" } },
-        highlight = { enable = true },
-        -- highlight = { enable = true, disable = { "python" } },
+        -- highlight = { enable = true },
+        highlight = { enable = true, disable = { "python" } },
         incremental_selection = {
           enable = true,
           keymaps = {

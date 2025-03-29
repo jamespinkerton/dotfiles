@@ -28,7 +28,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { import = "plugins.misc" },
   { import = "plugins.nvim_cmp" },
-  { import = "plugins.dap" },
+  -- { import = "plugins.dap" },
   { import = "plugins.gitsigns" },
   { import = "plugins.nvim_lspconfig" },
   { import = "plugins.telescope" },
