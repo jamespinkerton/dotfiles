@@ -27,12 +27,12 @@ vim.opt.rtp:prepend(lazypath)
 -- require("lazy").setup("plugins")
 require("lazy").setup({
   { import = "plugins.misc" },
-  { import = "plugins.nvim_cmp" },
+  { import = "plugins.cmp" },
   -- { import = "plugins.dap" },
   { import = "plugins.gitsigns" },
-  { import = "plugins.nvim_lspconfig" },
+  { import = "plugins.lspconfig" },
   { import = "plugins.telescope" },
-  { import = "plugins.nvim_treesitter" },
+  { import = "plugins.treesitter" },
 })
 
 vim.keymap.set("n", "<leader>l", vim.cmd.Lazy, {desc = "[L]azy plugin manager"})
