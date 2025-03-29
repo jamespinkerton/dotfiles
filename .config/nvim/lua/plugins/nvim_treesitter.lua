@@ -1,5 +1,5 @@
 return {
-  { -- Highlight, edit, and navigate code
+  {
     "nvim-treesitter/nvim-treesitter",
     build = function()
       pcall(require("nvim-treesitter.install").update { with_sync = true })
@@ -12,10 +12,10 @@ return {
         auto_install = true,
         ensure_installed = { "python", "c", "cpp", "lua", "rust", "help", "vim" },
         ignore_install = { "help" },
-        -- indent = { enable = true },
-        indent = { enable = true, disable = { "python" } },
-        -- highlight = { enable = true },
-        highlight = { enable = true, disable = { "python" } },
+        indent = { enable = true },
+        -- indent = { enable = true, disable = { "python" } },
+        highlight = { enable = true },
+        -- highlight = { enable = true, disable = { "python" } },
         incremental_selection = {
           enable = true,
           keymaps = {
@@ -28,9 +28,8 @@ return {
         textobjects = {
           select = {
             enable = true,
-            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true,
             keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
               ["aa"] = "@parameter.outer",
               ["ia"] = "@parameter.inner",
               ["af"] = "@function.outer",
@@ -41,7 +40,7 @@ return {
           },
           move = {
             enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
+            set_jumps = true,
             goto_next_start = {
               ["]m"] = "@function.outer",
               ["]]"] = "@class.outer",
