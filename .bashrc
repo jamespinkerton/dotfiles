@@ -65,6 +65,3 @@ else
     echo "ERROR: Could not find /mnt/disks/condaman/mamba/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
-
-
-# ssh james@3.112.250.171 -i ~/.ssh/for_jrr_id_rsa
