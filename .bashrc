@@ -13,6 +13,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(fzf --bash)"
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
 [ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
 [ -f ~/.config/git/git_prompt.sh ] && source ~/.config/git/git_prompt.sh
@@ -41,6 +42,7 @@ function vcsv {
 
 SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
 PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
+# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 PROMPT_COMMAND=
 
 # >>> conda initialize >>>
