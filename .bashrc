@@ -1,3 +1,4 @@
+export MAMBA_ROOT_PREFIX=/mnt/disks/condaman/mamba
 export PATH=/mnt/disks/condaman/mamba/bin:$PATH
 export PATH=/opt/homebrew/bin/:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
@@ -17,6 +18,7 @@ eval "$(fzf --bash)"
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
 [ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
 [ -f ~/.config/git/git_prompt.sh ] && source ~/.config/git/git_prompt.sh
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
 
 shopt -s globstar
 shopt -s extglob
@@ -35,6 +37,7 @@ alias gs='gcloud storage'
 alias py='PYTHONPATH=. python'
 alias st='PYTHONPATH=. streamlit'
 alias gls='gcloud compute instances list'
+alias glsj='gcloud compute instances list --filter="name ~ james"'
 
 function vcsv {
     /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K -N
@@ -46,22 +49,21 @@ PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
 PROMPT_COMMAND=
 
 # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/mnt/disks/condaman/mamba/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/mnt/disks/condaman/mamba/etc/profile.d/conda.sh" ]; then
-#         . "/mnt/disks/condaman/mamba/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/mnt/disks/condaman/mamba/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/mnt/disks/condaman/mamba/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/mnt/disks/condaman/mamba/etc/profile.d/conda.sh" ]; then
+        . "/mnt/disks/condaman/mamba/etc/profile.d/conda.sh"
+    else
+        export PATH="/mnt/disks/condaman/mamba/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 
 if [ -f "/mnt/disks/condaman/mamba/etc/profile.d/mamba.sh" ]; then
     . "/mnt/disks/condaman/mamba/etc/profile.d/mamba.sh"
-else
-    echo "ERROR: Could not find /mnt/disks/condaman/mamba/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+

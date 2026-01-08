@@ -33,6 +33,7 @@ require("lazy").setup({
   { import = "plugins.lspconfig" },
   { import = "plugins.telescope" },
   { import = "plugins.treesitter" },
+  -- { import = "plugins.ai" },
 })
 
 vim.keymap.set("n", "<leader>l", vim.cmd.Lazy, {desc = "[L]azy plugin manager"})
@@ -66,6 +67,12 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true 
 
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = nil })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = nil })
+
+
+vim.keymap.set("n", "<leader>b", function()
+  vim.cmd("botright 10split")
+  vim.cmd("terminal ./bin/lint")
+end, { noremap = true, silent = true })
 
 -- vim.lsp.config.clangd = {
 --   cmd = { "clangd", "--background-index" },

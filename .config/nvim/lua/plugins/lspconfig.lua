@@ -43,11 +43,8 @@ local startup_lsp = function()
     -- basedpyright = {},
     -- rust_analyzer = {},
     clangd = { { semanticTokens = { enable = false } } },
-    pylsp = {
-      plugins = {
-         pylsp_mypy = { enabled = true },
-      }
-    },
+    pylsp = {},
+    -- pyright = {},
     lua_ls = {
       Lua = {
         workspace = { checkThirdParty = false },
@@ -64,19 +61,37 @@ local startup_lsp = function()
   capabilities.semanticTokensProvider = nil
   local mason_lspconfig = require("mason-lspconfig")
 
+
   mason_lspconfig.setup {
     automatic_installation = true,
     ensure_installed = vim.tbl_keys(servers),
   }
 
+  require("lspconfig").clangd.setup {
+    cmd = { "/mnt/disks/condaman/mamba/bin/clangd" },
+    capabilities = capabilities,
+    settings = servers.clangd, -- Use settings from your 'servers' table
+  }
+
   mason_lspconfig.setup_handlers {
     function(server_name)
-      require("lspconfig")[server_name].setup {
-        capabilities = capabilities,
-        settings = servers[server_name],
-      }
+      if server_name ~= "clangd" then
+        require("lspconfig")[server_name].setup {
+          capabilities = capabilities,
+          settings = servers[server_name],
+        }
+      end
     end,
   }
+
+  -- mason_lspconfig.setup_handlers {
+  --   function(server_name)
+  --     require("lspconfig")[server_name].setup {
+  --       capabilities = capabilities,
+  --       settings = servers[server_name],
+  --     }
+  --   end,
+  -- }
 
 end
 

@@ -68,6 +68,22 @@ return {
     "kdheepak/lazygit.nvim",
     config = function()
       vim.keymap.set("n", "<leader>hg", ":LazyGit<enter>")
+      vim.keymap.set("n", "<leader>hl", ":LazyGitLog<enter>")
+    end
+  },
+
+  {
+    "tpope/vim-fugitive",
+  },
+
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = function()
+      require("toggleterm").setup({
+        size = 20,
+        open_mapping = [[<c-\>]],
+      })
     end
   },
 }
