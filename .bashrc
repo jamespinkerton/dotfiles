@@ -13,6 +13,20 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+export TMPDIR=/mnt/disks/scratch/tmp
+export TMP=$TMPDIR
+export TEMP=$TMPDIR
+export DATA_DISK=/mnt/disks/scratch/app_cache
+export XDG_CACHE_HOME="$DATA_DISK/cache"
+export XDG_DATA_HOME="$DATA_DISK/local/share"
+export NPM_CONFIG_CACHE="$DATA_DISK/npm"
+export JUPYTER_DATA_DIR="$DATA_DISK/jupyter"
+export IPYTHONDIR="$DATA_DISK/ipython"
+export TF_DATA_DIR="$DATA_DISK/terraform.d"
+export CLAUDE_CONFIG_DIR="$DATA_DISK/claude"
+export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"
+
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 eval "$(fzf --bash)"
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
