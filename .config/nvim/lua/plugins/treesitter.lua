@@ -1,9 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    build = function()
-      pcall(require("nvim-treesitter.install").update { with_sync = true })
-    end,
+    build = ":TSUpdate",
     dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
     config = function()
       require("nvim-treesitter.configs").setup {
@@ -14,8 +12,8 @@ return {
         ignore_install = { "help" },
         indent = { enable = true },
         -- indent = { enable = true, disable = { "python" } },
-        -- highlight = { enable = true },
-        highlight = { enable = true, disable = { "python" } },
+        highlight = { enable = true },
+        -- highlight = { enable = true, disable = { "python" } },
         incremental_selection = {
           enable = true,
           keymaps = {

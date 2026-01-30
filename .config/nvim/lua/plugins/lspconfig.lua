@@ -112,10 +112,13 @@ return {
         "williamboman/mason-lspconfig.nvim",
       },
       {
-        "folke/neodev.nvim",
-        config = function()
-          require("neodev").setup()
-        end,
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = {
+            { path = "luvit-meta/library", words = { "vim%.uv" } },
+          },
+        },
       },
     },
     config = startup_lsp,
