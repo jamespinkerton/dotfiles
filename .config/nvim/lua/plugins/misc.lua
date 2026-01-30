@@ -3,9 +3,9 @@ return {
     "dstein64/vim-startuptime",
   },
 
-  {
-    "tpope/vim-sleuth",
-  },
+  -- {
+  --   "tpope/vim-sleuth",
+  -- },
 
   {
     "rcarriga/nvim-notify",
@@ -72,9 +72,9 @@ return {
     end
   },
 
-  {
-    "tpope/vim-fugitive",
-  },
+  -- {
+  --   "tpope/vim-fugitive",
+  -- },
 
   {
     'akinsho/toggleterm.nvim',
