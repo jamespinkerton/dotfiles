@@ -61,37 +61,25 @@ local startup_lsp = function()
   capabilities.semanticTokensProvider = nil
   local mason_lspconfig = require("mason-lspconfig")
 
-
   mason_lspconfig.setup {
     automatic_installation = true,
     ensure_installed = vim.tbl_keys(servers),
   }
 
-  require("lspconfig").clangd.setup {
-    cmd = { "/mnt/disks/condaman/mamba/bin/clangd" },
+  vim.lsp.config('*', {
     capabilities = capabilities,
-    settings = servers.clangd, -- Use settings from your 'servers' table
-  }
+  })
 
-  mason_lspconfig.setup_handlers {
-    function(server_name)
-      if server_name ~= "clangd" then
-        require("lspconfig")[server_name].setup {
-          capabilities = capabilities,
-          settings = servers[server_name],
-        }
-      end
-    end,
-  }
+  vim.lsp.config('clangd', {
+    cmd = { "/mnt/disks/condaman/mamba/bin/clangd" },
+    settings = servers.clangd,
+  })
 
-  -- mason_lspconfig.setup_handlers {
-  --   function(server_name)
-  --     require("lspconfig")[server_name].setup {
-  --       capabilities = capabilities,
-  --       settings = servers[server_name],
-  --     }
-  --   end,
-  -- }
+  vim.lsp.config('lua_ls', {
+    settings = servers.lua_ls,
+  })
+
+  vim.lsp.enable(vim.tbl_keys(servers))
 
 end
 
