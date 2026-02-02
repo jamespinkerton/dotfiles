@@ -1,16 +1,11 @@
 local startup_lsp = function()
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-      virtual_text = false
-    }
-  )
-
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+  vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end)
+  vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end)
   vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Diagnostic open float" })
   vim.diagnostic.config({
     severity_sort = false,
     underline = false,
+    virtual_text = false,
   })
 
   local nmap = function(keys, func, desc)
