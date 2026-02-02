@@ -18,22 +18,19 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
--- require("lazy").setup("plugins")
 require("lazy").setup({
   { import = "plugins.misc" },
   { import = "plugins.cmp" },
-  -- { import = "plugins.dap" },
   { import = "plugins.gitsigns" },
   { import = "plugins.lspconfig" },
   { import = "plugins.telescope" },
   { import = "plugins.treesitter" },
-  -- { import = "plugins.ai" },
 })
 
 vim.keymap.set("n", "<leader>l", vim.cmd.Lazy, {desc = "[L]azy plugin manager"})
@@ -73,20 +70,3 @@ vim.keymap.set("n", "<leader>b", function()
   vim.cmd("botright 10split")
   vim.cmd("terminal ./bin/lint")
 end, { noremap = true, silent = true })
-
--- vim.lsp.config.clangd = {
---   cmd = { "clangd", "--background-index" },
---   root_markers = { "compile_commands.json", "compile_flags.txt" },
---   filetypes = { "c", "cpp" },
--- }
---
--- vim.lsp.enable({"clangd"})
---
--- vim.api.nvim_create_autocmd("LspAttach", {
---   callback = function(ev)
---     local client = vim.lsp.get_client_by_id(ev.data.client_id)
---     if client:supports_method("textDocument/completion") then
---       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
---     end
---   end,
--- })
