@@ -25,6 +25,7 @@ export IPYTHONDIR="$DATA_DISK/ipython"
 export TF_DATA_DIR="$DATA_DISK/terraform.d"
 export CLAUDE_CONFIG_DIR="$DATA_DISK/claude"
 export CLAUDE_CODE_TMPDIR="$DATA_DISK/claude_tmp"
+export CODEX_HOME="$DATA_DISK/codex"
 export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"
 
 
