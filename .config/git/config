@@ -19,3 +19,5 @@
     id = rev-parse --short HEAD
     count = rev-list --count HEAD
     url = remote get-url origin
+[safe]
+	directory = /home/james/src/tesuji
