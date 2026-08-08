@@ -19,5 +19,7 @@
     id = rev-parse --short HEAD
     count = rev-list --count HEAD
     url = remote get-url origin
+    human-branches = "!f() { git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads | grep -Eiv 'codex'; }; f"
+    remote-human-branches = "!f() { git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes | grep -Eiv 'codex'; }; f"
 [safe]
 	directory = /home/james/src/tesuji
