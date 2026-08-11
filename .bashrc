@@ -56,10 +56,6 @@ alias gc='bin/python gcfarm/cli.py'
 alias c1='CODEX_HOME="$DATA_DISK/codex" codex'
 alias c2='CODEX_HOME="$DATA_DISK/codex2" codex'
 
-function vcsv {
-    /usr/bin/perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K -N
-}
-
 SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
 PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
 PROMPT_COMMAND=
