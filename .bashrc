@@ -25,9 +25,12 @@ export IPYTHONDIR="$DATA_DISK/ipython"
 export TF_DATA_DIR="$DATA_DISK/terraform.d"
 export CLAUDE_CONFIG_DIR="$DATA_DISK/claude"
 export CLAUDE_CODE_TMPDIR="$DATA_DISK/claude_tmp"
-export CODEX_HOME="$DATA_DISK/codex2"
+export CODEX_HOME="$DATA_DISK/codex"
+export PI_CODING_AGENT_DIR="$DATA_DISK/pi"
 export OPENCODE_CONFIG="$DATA_DISK/opencode/opencode.json"
 export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"
+export DOTNET_ROOT="$MAMBA_ROOT_PREFIX/lib/dotnet"
+export PATH="$DOTNET_ROOT:$DOTNET_ROOT/tools:$PATH"
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
