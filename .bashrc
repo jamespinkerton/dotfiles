@@ -3,6 +3,8 @@ export PATH=/mnt/disks/scratch/mamba/bin:$PATH
 export PATH=/opt/homebrew/bin/:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/home/james/.opencode/bin:$PATH
+export PATH=/home/james/.local/bin:$PATH
 export EDITOR=nvim
 export HISTFILESIZE=10000
 export HISTSIZE=200
@@ -29,8 +31,6 @@ export CODEX_HOME="$DATA_DISK/codex"
 export PI_CODING_AGENT_DIR="$DATA_DISK/pi"
 export OPENCODE_CONFIG="$DATA_DISK/opencode/opencode.json"
 export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"
-export DOTNET_ROOT="$MAMBA_ROOT_PREFIX/lib/dotnet"
-export PATH="$DOTNET_ROOT:$DOTNET_ROOT/tools:$PATH"
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -62,12 +62,7 @@ alias gc='bin/python gcfarm/cli.py'
 alias c1='CODEX_HOME="$DATA_DISK/codex" codex'
 alias c2='CODEX_HOME="$DATA_DISK/codex2" codex'
 
-function _claude_mixed {
-    local main_model="$1"
-    local custom_model="$2"
-    local custom_model_name="$3"
-    shift 3
-
+function claudex {
     local cliproxy_key
     cliproxy_key="$(
         sed -n '/^api-keys:/,/^[^[:space:]]/ {
@@ -75,7 +70,7 @@ function _claude_mixed {
         }' "$DATA_DISK/cli-proxy-api/config.yaml" | head -n 1
     )"
     if [ -z "$cliproxy_key" ]; then
-        echo "_claude_mixed: no proxy API key found in $DATA_DISK/cli-proxy-api/config.yaml" >&2
+        echo "claudex: no proxy API key found in $DATA_DISK/cli-proxy-api/config.yaml" >&2
         return 1
     fi
 
@@ -84,68 +79,16 @@ function _claude_mixed {
         unset CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY
         export ANTHROPIC_BASE_URL=http://127.0.0.1:8317
         export ANTHROPIC_AUTH_TOKEN="$cliproxy_key"
-        if [ -n "$custom_model" ]; then
-            export ANTHROPIC_CUSTOM_MODEL_OPTION="$custom_model"
-            export ANTHROPIC_CUSTOM_MODEL_OPTION_NAME="$custom_model_name"
-            export ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION="Codex OAuth through CLIProxyAPI"
-        else
-            unset ANTHROPIC_CUSTOM_MODEL_OPTION
-            unset ANTHROPIC_CUSTOM_MODEL_OPTION_NAME
-            unset ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION
-        fi
+        unset ANTHROPIC_CUSTOM_MODEL_OPTION
+        unset ANTHROPIC_CUSTOM_MODEL_OPTION_NAME
+        unset ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION
         export CLAUDE_CODE_ALWAYS_ENABLE_EFFORT=1
         export CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY=3
         export CLAUDE_CODE_AUTO_COMPACT_WINDOW=372000
         export ENABLE_TOOL_SEARCH=false
-        echo command claude --model "$main_model" "$@"
-        command claude --model "$main_model" "$@"
+        echo command claude "$@"
+        command claude "$@"
     )
-}
-
-function claudex {
-    _claude_mixed gpt-5.6-sol gpt-5.6-sol "GPT 5.6 Sol" "$@"
-}
-
-function claudex-fast {
-    _claude_mixed gpt-5.6-sol-fast gpt-5.6-sol-fast "GPT 5.6 Sol Fast" "$@"
-}
-
-function claudef {
-    _claude_mixed fable "" "" "$@"
-}
-
-codex-worktree() {
-  if [ -z "$1" ]; then
-    echo "Usage: codex-worktree <worktree-name> [base-ref]"
-    return 2
-  fi
-
-  local name="$1"
-  local base_ref="${2:-HEAD}"
-  local repo_root
-  local worktree_path
-  local exclude_file
-
-  repo_root="$(git rev-parse --show-toplevel)" || return
-  worktree_path="$repo_root/.codex/worktrees/$name"
-  exclude_file="$(git rev-parse --git-path info/exclude)"
-
-  if [ -e "$worktree_path" ]; then
-    echo "Worktree path already exists: $worktree_path"
-    return 1
-  fi
-
-  mkdir -p "$repo_root/.codex/worktrees"
-
-  grep -qxF '/.codex/worktrees/' "$exclude_file" 2>/dev/null ||
-    echo '/.codex/worktrees/' >> "$exclude_file"
-
-  git worktree add --detach "$worktree_path" "$base_ref" || return
-
-  (
-    cd "$worktree_path" &&
-    codex
-  )
 }
 
 function vcsv {
@@ -157,28 +100,7 @@ PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
 # PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 PROMPT_COMMAND=
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/mnt/disks/scratch/mamba/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/mnt/disks/scratch/mamba/etc/profile.d/conda.sh" ]; then
-        . "/mnt/disks/scratch/mamba/etc/profile.d/conda.sh"
-    else
-        export PATH="/mnt/disks/scratch/mamba/bin:$PATH"
-    fi
+if [ -f "$MAMBA_ROOT_PREFIX/etc/profile.d/mamba.sh" ]; then
+    . "$MAMBA_ROOT_PREFIX/etc/profile.d/mamba.sh"
 fi
-unset __conda_setup
-
-if [ -f "/mnt/disks/scratch/mamba/etc/profile.d/mamba.sh" ]; then
-    . "/mnt/disks/scratch/mamba/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-
-# opencode
-export PATH=/home/james/.opencode/bin:$PATH
-
-
-# Added by Antigravity CLI installer
-export PATH="/home/james/.local/bin:$PATH"
+mamba activate base
