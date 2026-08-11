@@ -3,8 +3,7 @@ export PATH=/mnt/disks/scratch/mamba/bin:$PATH
 export PATH=/opt/homebrew/bin/:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export PATH=/home/james/.opencode/bin:$PATH
-export PATH=/home/james/.local/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
 export EDITOR=nvim
 export HISTFILESIZE=10000
 export HISTSIZE=200
@@ -24,7 +23,6 @@ export XDG_DATA_HOME="$DATA_DISK/local/share"
 export NPM_CONFIG_CACHE="$DATA_DISK/npm"
 export JUPYTER_DATA_DIR="$DATA_DISK/jupyter"
 export IPYTHONDIR="$DATA_DISK/ipython"
-export TF_DATA_DIR="$DATA_DISK/terraform.d"
 export CLAUDE_CONFIG_DIR="$DATA_DISK/claude"
 export CLAUDE_CODE_TMPDIR="$DATA_DISK/claude_tmp"
 export CODEX_HOME="$DATA_DISK/codex"
@@ -42,9 +40,7 @@ eval "$(fzf --bash)"
 
 shopt -s globstar
 shopt -s extglob
-shopt -s checkwinsize
 shopt -s histappend
-shopt -s cmdhist
 shopt -s cdspell
 shopt -s dirspell
 
@@ -97,7 +93,6 @@ function vcsv {
 
 SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
 PS1="$SMILEY\[\e[36m\] @\h \w $ \[\e[37m\]"
-# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 PROMPT_COMMAND=
 
 if [ -f "$MAMBA_ROOT_PREFIX/etc/profile.d/mamba.sh" ]; then
