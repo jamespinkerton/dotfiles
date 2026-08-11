@@ -30,10 +30,10 @@ export PI_CODING_AGENT_DIR="$DATA_DISK/pi"
 export OPENCODE_CONFIG="$DATA_DISK/opencode/opencode.json"
 export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"
 
+[[ $- != *i* ]] && return
 
 eval "$(fzf --bash)"
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
-[ -f ~/.config/git/git_prompt.sh ] && source ~/.config/git/git_prompt.sh
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 
 shopt -s globstar
