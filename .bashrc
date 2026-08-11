@@ -31,10 +31,8 @@ export OPENCODE_CONFIG="$DATA_DISK/opencode/opencode.json"
 export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 eval "$(fzf --bash)"
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
-[ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
 [ -f ~/.config/git/git_prompt.sh ] && source ~/.config/git/git_prompt.sh
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 
@@ -44,7 +42,7 @@ shopt -s histappend
 shopt -s cdspell
 shopt -s dirspell
 
-set colored-stats on
+bind 'set colored-stats on'
 
 alias ls='ls --color=auto'
 alias vi='nvim'
