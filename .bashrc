@@ -59,6 +59,7 @@ alias goog='mosh gcp'
 alias googssh='ssh gcp'
 alias compute_googssh='gcloud compute ssh james@james-dev --zone us-central1-b'
 alias prod='mosh aws1 -- tmux a -t main'
+alias h='herdr --remote gcp'
 
 if [[ -n ${DATA_DISK:-} ]]; then
     alias c1='CODEX_HOME="$DATA_DISK/codex" codex'
