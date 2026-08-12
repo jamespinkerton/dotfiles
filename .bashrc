@@ -55,6 +55,11 @@ alias st='PYTHONPATH=. streamlit'
 alias gls='gcloud compute instances list'
 alias glsj='gcloud compute instances list --filter="name ~ james"'
 alias gc='bin/python gcfarm/cli.py'
+alias goog='mosh gcp'
+alias googssh='ssh gcp'
+alias compute_googssh='gcloud compute ssh james@james-dev --zone us-central1-b'
+alias prod='mosh aws1 -- tmux a -t main'
+
 if [[ -n ${DATA_DISK:-} ]]; then
     alias c1='CODEX_HOME="$DATA_DISK/codex" codex'
     alias c2='CODEX_HOME="$DATA_DISK/codex2" codex'
