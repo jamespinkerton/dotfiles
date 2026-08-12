@@ -4,11 +4,10 @@ return {
     branch = "main",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter").setup({
-        ensure_installed = {
-          "python", "c", "cpp", "lua", "rust", "vim", "vimdoc",
-        },
-        auto_install = true,
+      local treesitter = require("nvim-treesitter")
+      treesitter.setup({})
+      treesitter.install({
+        "python", "c", "cpp", "lua", "rust", "vim", "vimdoc",
       })
       vim.api.nvim_create_autocmd("FileType", {
         callback = function()
