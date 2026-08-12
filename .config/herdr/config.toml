@@ -1,0 +1,10 @@
+[ui]
+agent_panel_sort = "priority"
+prompt_new_tab_name = false
+
+[ui.sidebar.agents]
+rows = [
+  ["state_icon", "workspace", "tab"],
+  ["terminal_title_stripped"],
+  ["agent"],
+]
