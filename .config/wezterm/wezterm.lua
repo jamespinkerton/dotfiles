@@ -10,6 +10,6 @@ return {
   audible_bell = "Disabled",
   font_size = 14.0,
   hide_tab_bar_if_only_one_tab = true,
-  -- native_macos_fullscreen_mode = false,
+  native_macos_fullscreen_mode = false,
   window_decorations = "RESIZE|TITLE",
 }
