@@ -19,6 +19,7 @@ if [[ -d /mnt/disks/scratch ]]; then
     export TMP=$TMPDIR
     export TEMP=$TMPDIR
     export DATA_DISK=/mnt/disks/scratch/$USER/app_cache
+    export PRIVATE_DISK=/mnt/disks/scratch/$USER/private
     export XDG_CACHE_HOME="$DATA_DISK/cache"
     export XDG_DATA_HOME="$DATA_DISK/local/share"
     export NPM_CONFIG_CACHE="$DATA_DISK/npm"
@@ -30,6 +31,8 @@ if [[ -d /mnt/disks/scratch ]]; then
     export PI_CODING_AGENT_DIR="$DATA_DISK/pi"
     export OPENCODE_CONFIG="$DATA_DISK/opencode/opencode.json"
     export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"
+    export GH_CONFIG_DIR="$PRIVATE_DISK/gh"
+    export GIT_CONFIG_GLOBAL="$PRIVATE_DISK/gitconfig"
 fi
 
 [[ $- != *i* ]] && return
