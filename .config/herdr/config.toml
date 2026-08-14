@@ -8,3 +8,6 @@ rows = [
   ["terminal_title_stripped"],
   ["agent"],
 ]
+
+[ui.sound]
+enabled = false
