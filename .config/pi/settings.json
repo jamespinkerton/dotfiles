@@ -1,0 +1,19 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-sol",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:@diegopetrucci/pi-openai-fast",
+    "npm:@juanbenjumea/pi-dynamic-footer",
+    "npm:@narumitw/pi-goal",
+    "npm:pi-web-access",
+    "npm:pi-btw",
+    "npm:pi-background-tasks",
+    "npm:@robzolkos/pi-nocchio",
+    "npm:@howaboua/pi-codex-conversion",
+    "npm:@oleg_tarasov/pi-websearch-manager",
+    "npm:pi-esc-steer"
+  ],
+  "theme": "dark"
+}
