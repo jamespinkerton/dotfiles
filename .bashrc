@@ -38,6 +38,8 @@ fi
 
 [[ $- != *i* ]] && return
 
+[ -f "$HOME/.config/bash/functions.sh" ] && source "$HOME/.config/bash/functions.sh"
+
 eval "$(fzf --bash)"
 [ -f /etc/bash_completion ] && ! shopt -oq posix && source /etc/bash_completion
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
