@@ -11,3 +11,7 @@ rows = [
 
 [ui.sound]
 enabled = false
+
+[theme]
+name = "catppuccin"
+auto_switch = false

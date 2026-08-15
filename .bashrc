@@ -2,6 +2,8 @@ export PATH=/opt/homebrew/bin/:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.opencode/bin:$PATH
+export IPYTHONDIR="$HOME/.config/ipython"
+export PI_CODING_AGENT_DIR="$HOME/.config/pi"
 export EDITOR=nvim
 export HISTFILESIZE=10000
 export HISTSIZE=200
@@ -28,11 +30,10 @@ if [[ -d /mnt/disks/scratch ]]; then
     export CLAUDE_CONFIG_DIR="$DATA_DISK/claude"
     export CLAUDE_CODE_TMPDIR="$DATA_DISK/claude_tmp"
     export CODEX_HOME="$DATA_DISK/codex"
-    export PI_CODING_AGENT_DIR="$DATA_DISK/pi"
+    export PI_CODING_AGENT_SESSION_DIR="$DATA_DISK/pi/sessions"
     export OPENCODE_CONFIG="$DATA_DISK/opencode/opencode.json"
     export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"
     export GH_CONFIG_DIR="$PRIVATE_DISK/gh"
-    export GIT_CONFIG_GLOBAL="$PRIVATE_DISK/gitconfig"
 fi
 
 [[ $- != *i* ]] && return
