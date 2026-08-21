@@ -1,4 +1,5 @@
 {
   "app.model.cycleForward": [],
-  "tui.editor.cursorUp": ["up", "ctrl+p"]
+  "tui.editor.cursorUp": ["up", "ctrl+p"],
+  "tui.editor.cursorDown": ["down", "ctrl+n"]
 }
