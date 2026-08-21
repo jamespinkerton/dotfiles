@@ -2,7 +2,7 @@
     name = James Pinkerton
     email = james@tesujilabs.com
 [credential]
-    helper = store
+    helper = !gh auth git-credential
 [diff]
 	tool = nvimdiff
 [format]
