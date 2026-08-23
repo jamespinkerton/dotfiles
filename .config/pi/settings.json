@@ -13,7 +13,10 @@
     "npm:@robzolkos/pi-nocchio",
     "npm:@howaboua/pi-codex-conversion",
     "npm:@oleg_tarasov/pi-websearch-manager",
-    "npm:pi-esc-steer"
+    "npm:pi-esc-steer",
+    "npm:remote-pi",
+    "npm:@earendil-works/pi-ai",
+    "npm:@saccolabs/pi-claude-cli"
   ],
   "theme": "dark"
 }
