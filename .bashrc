@@ -17,6 +17,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 if [[ $OSTYPE == darwin* && -x "$HOME/.config/ssh/ssh-askpass-macos" ]]; then
     export SSH_ASKPASS="$HOME/.config/ssh/ssh-askpass-macos"
+    export SSH_ASKPASS_REQUIRE=force
 fi
 
 if [[ -d /mnt/disks/scratch ]]; then
