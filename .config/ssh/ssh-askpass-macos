@@ -1,0 +1,24 @@
+#!/bin/sh
+
+prompt=${1:-"SSH authentication required"}
+
+if [ "${SSH_ASKPASS_PROMPT:-}" = "none" ]; then
+    /usr/bin/osascript \
+        -e 'on run argv' \
+        -e 'display notification (item 1 of argv) with title "SSH security key"' \
+        -e 'end run' \
+        "$prompt" >/dev/null 2>&1
+    /bin/sleep 300
+    exit 0
+fi
+
+/usr/bin/osascript - "$prompt" <<'APPLESCRIPT'
+on run argv
+    try
+        set answer to display dialog (item 1 of argv) default answer "" with hidden answer buttons {"Cancel", "OK"} default button "OK" with title "SSH security key"
+        return text returned of answer
+    on error number -128
+        error number -128
+    end try
+end run
+APPLESCRIPT
