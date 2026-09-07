@@ -35,7 +35,7 @@ if [[ -d /mnt/disks/scratch ]]; then
     export IPYTHONDIR="$DATA_DISK/ipython"
     export CLAUDE_CONFIG_DIR="$DATA_DISK/claude"
     export CLAUDE_CODE_TMPDIR="$DATA_DISK/claude_tmp"
-    export CODEX_HOME="$DATA_DISK/codex2"
+    export CODEX_HOME="$DATA_DISK/codex"
     export PI_CODING_AGENT_SESSION_DIR="$DATA_DISK/pi/sessions"
     export OPENCODE_CONFIG="$DATA_DISK/opencode/opencode.json"
     export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"

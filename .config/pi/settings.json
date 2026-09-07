@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.85.1",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-sol",
-  "defaultThinkingLevel": "xhigh",
+  "defaultModel": "gpt-6-astra",
+  "defaultThinkingLevel": "medium",
   "packages": [
     "npm:@diegopetrucci/pi-openai-fast",
     "npm:@juanbenjumea/pi-dynamic-footer",
@@ -15,8 +15,7 @@
     "npm:pi-esc-steer",
     "npm:@earendil-works/pi-ai",
     "npm:@saccolabs/pi-claude-cli",
-    "npm:pi-render-btw",
-    "npm:pi-multi-account"
+    "npm:pi-render-btw"
   ],
   "theme": "dark"
 }
