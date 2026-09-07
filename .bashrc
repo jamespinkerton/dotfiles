@@ -35,7 +35,7 @@ if [[ -d /mnt/disks/scratch ]]; then
     export IPYTHONDIR="$DATA_DISK/ipython"
     export CLAUDE_CONFIG_DIR="$DATA_DISK/claude"
     export CLAUDE_CODE_TMPDIR="$DATA_DISK/claude_tmp"
-    export CODEX_HOME="$DATA_DISK/codex"
+    export CODEX_HOME="$DATA_DISK/codex2"
     export PI_CODING_AGENT_SESSION_DIR="$DATA_DISK/pi/sessions"
     export OPENCODE_CONFIG="$DATA_DISK/opencode/opencode.json"
     export CONDA_PKGS_DIRS="$DATA_DISK/conda/pkgs"
@@ -76,6 +76,7 @@ alias h='herdr --remote gcp'
 if [[ -n ${DATA_DISK:-} ]]; then
     alias c1='CODEX_HOME="$DATA_DISK/codex" codex'
     alias c2='CODEX_HOME="$DATA_DISK/codex2" codex'
+    alias claude2='CLAUDE_CONFIG_DIR="$DATA_DISK/claude2" claude'
 fi
 
 SMILEY='`if [ $? = 0 ]; then echo \[\e[32m\]:\)\[\e[37m\]; else echo \[\e[31m\]:\(\[\e[37m\]; fi`'
@@ -86,3 +87,7 @@ if [ -f "$MAMBA_ROOT_PREFIX/etc/profile.d/mamba.sh" ]; then
     . "$MAMBA_ROOT_PREFIX/etc/profile.d/mamba.sh"
     mamba activate base
 fi
+
+# >>> Codex installer >>>
+export PATH="/home/james/.local/bin:$PATH"
+# <<< Codex installer <<<
